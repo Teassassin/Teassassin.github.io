@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="基本数据类型 C&#x2F;C++用的ASCII码(8位)，Java用的Unicode码(16位) true不是1，false不是0！这是两种不同类型  变量 变量使用之前必须初始化值！  参数传递按值传递 Java中只有按值传递！！！ 对象作为参数传入的是地址，因此内容可以被更改，但仍是按值传递  不定长参数123456789public static void printAvg(double ...sc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaLearn Notes - 2">
+<meta property="og:url" content="http://example.com/2020/02/15/Java/JavaLearn-Notes-2/index.html">
+<meta property="og:site_name" content="tkk的小仓库">
+<meta property="og:description" content="基本数据类型 C&#x2F;C++用的ASCII码(8位)，Java用的Unicode码(16位) true不是1，false不是0！这是两种不同类型  变量 变量使用之前必须初始化值！  参数传递按值传递 Java中只有按值传递！！！ 对象作为参数传入的是地址，因此内容可以被更改，但仍是按值传递  不定长参数123456789public static void printAvg(double ...sc">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-15T04:33:00.000Z">
+<meta property="article:modified_time" content="2021-01-12T12:26:03.150Z">
+<meta property="article:author" content="tkk">
+<meta property="article:tag" content="Java基础学习笔记">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2020/02/15/Java/JavaLearn-Notes-2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>JavaLearn Notes - 2 | tkk的小仓库</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">tkk的小仓库</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/15/Java/JavaLearn-Notes-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="tkk">
+      <meta itemprop="description" content="啥都没有">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tkk的小仓库">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaLearn Notes - 2
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-15 12:33:00" itemprop="dateCreated datePublished" datetime="2020-02-15T12:33:00+08:00">2020-02-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-12 20:26:03" itemprop="dateModified" datetime="2021-01-12T20:26:03+08:00">2021-01-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><ol>
+<li>C/C++用的ASCII码(8位)，Java用的Unicode码(16位)</li>
+<li>true不是1，false不是0！这是两种不同类型</li>
+</ol>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><ol>
+<li>变量使用之前必须初始化值！</li>
+</ol>
+<h1 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h1><h2 id="按值传递"><a href="#按值传递" class="headerlink" title="按值传递"></a>按值传递</h2><ul>
+<li>Java中只有<strong>按值传递</strong>！！！</li>
+<li>对象作为参数传入的是<strong>地址</strong>，因此内容可以被更改，但仍是<strong>按值传递</strong></li>
+</ul>
+<h2 id="不定长参数"><a href="#不定长参数" class="headerlink" title="不定长参数"></a>不定长参数</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printAvg</span><span class="params">(<span class="keyword">double</span> ...score)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; score.length; i++) &#123;</span><br><span class="line">        System.out.print(score[i] + <span class="string">&quot; &quot;</span>);</span><br><span class="line">        sum += score[i];</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println();</span><br><span class="line">    System.out.println(<span class="string">&quot;平均分：&quot;</span> + sum / score.length);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>相当于传了一个数组进来</li>
+<li>不定长参数要放在所有参数的<strong>最后面</strong></li>
+</ul>
+<h1 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h1><ul>
+<li>方法名称相同，参数列表不同</li>
+<li>编译器根据方法签名决定调用哪个方法</li>
+<li><strong>注意</strong><ul>
+<li>有时调用方法会有两个或更多可能的匹配，编译器无法判断哪个更为精确，这称为歧义调用（ambiguous invocation）</li>
+<li>被重载的方法必须具有不同的参数列表，不能基于不同修饰符或返回值类型来重载方法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回最大值</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 &gt; num2 ? num1 : num2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 返回最大值</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">max</span><span class="params">(<span class="keyword">double</span> num1, <span class="keyword">int</span> num2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 &gt; num2 ? num1 : num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1></li>
+</ul>
+</li>
+<li>public<ul>
+<li>公共类，可以被其他类所使用</li>
+<li>declares that the class can be used by an class regardless of its package</li>
+<li>无任何限制</li>
+<li>一个文件只能有一个public类</li>
+</ul>
+</li>
+<li>无修饰/默认说明<ul>
+<li>a class can be used only by other classes in the same package</li>
+<li>仅仅能在同一个包中的其他类引用</li>
+</ul>
+</li>
+<li>abstract<ul>
+<li>declares that the class cannot be instantiated</li>
+<li>宣布该类不能被实例化</li>
+</ul>
+</li>
+<li>final<ul>
+<li>declares that the class cannot be subclassed</li>
+<li>宣布该类不能有子类</li>
+</ul>
+</li>
+</ul>
+<h2 id="成员变量的访问权限"><a href="#成员变量的访问权限" class="headerlink" title="成员变量的访问权限"></a>成员变量的访问权限</h2><ul>
+<li>public<ul>
+<li>公共访问控制符</li>
+<li>被所有类访问</li>
+</ul>
+</li>
+<li>默认访问控制符<ul>
+<li>被同一包中的其他类访问</li>
+</ul>
+</li>
+<li>private<ul>
+<li>私有访问控制符</li>
+<li>被该类自身访问</li>
+</ul>
+</li>
+<li>protected<ul>
+<li>保护访问控制符</li>
+<li>该类自身、同一个包中的其他类、其他包中的子类访问</li>
+</ul>
+</li>
+<li>private protected<ul>
+<li>私有保护访问控制符</li>
+<li>该类自身、所有子类访问</li>
+</ul>
+</li>
+</ul>
+<h2 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h2><h3 id="“-”连接符"><a href="#“-”连接符" class="headerlink" title="“+”连接符"></a>“+”连接符</h3><ul>
+<li>“+”连接符对于<strong>直接相加</strong>的字符串常量效率很高，因为在编译期间便确定了它的值，形如”I”+”Love”+”Java”; 在编译期间便被优化成了”ILoveJava”</li>
+<li>对于<strong>间接相加</strong>（包含字符串引用，且编译期间无法确定值的），形如”a” + s1; 效率要比<strong>直接相加</strong>低<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String s0 = <span class="string">&quot;ab&quot;</span>; <span class="comment">// &quot;ab&quot;放入常量池</span></span><br><span class="line"><span class="keyword">final</span> String s1 = <span class="string">&quot;b&quot;</span>;</span><br><span class="line">String s2 = <span class="string">&quot;a&quot;</span> + s1;</span><br><span class="line">System.out.println((s0 == s2)); <span class="comment">// result = true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String s0 = <span class="string">&quot;ab&quot;</span>; <span class="comment">// &quot;ab&quot;放入常量池</span></span><br><span class="line"><span class="keyword">final</span> String s1 = getS1();</span><br><span class="line">String s2 = <span class="string">&quot;a&quot;</span> + s1;</span><br><span class="line">System.out.println((s0 == s2)); <span class="comment">// result = false</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># Java基础学习笔记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/08/Java/JavaLearn-Notes-1/" rel="prev" title="JavaLearn Notes - 1">
+      <i class="fa fa-chevron-left"></i> JavaLearn Notes - 1
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/19/Database/DataBase-Notes-1/" rel="next" title="DataBase-Notes-1">
+      DataBase-Notes-1 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-number">3.</span> <span class="nav-text">参数传递</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92"><span class="nav-number">3.1.</span> <span class="nav-text">按值传递</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%AE%9A%E9%95%BF%E5%8F%82%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text">不定长参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD"><span class="nav-number">4.</span> <span class="nav-text">方法重载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B1%BB"><span class="nav-number">5.</span> <span class="nav-text">类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90"><span class="nav-number">5.1.</span> <span class="nav-text">成员变量的访问权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String%E7%B1%BB"><span class="nav-number">5.2.</span> <span class="nav-text">String类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%9C-%E2%80%9D%E8%BF%9E%E6%8E%A5%E7%AC%A6"><span class="nav-number">5.2.1.</span> <span class="nav-text">“+”连接符</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">tkk</p>
+  <div class="site-description" itemprop="description">啥都没有</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tkk</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
