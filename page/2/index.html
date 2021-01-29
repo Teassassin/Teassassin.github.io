@@ -154,6 +154,439 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysql/mysql-Notes_1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/12/mysql/mysql-Notes_1/">mysql学习笔记_1 - 常用命令</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/12/mysql/mysql-Notes_1/" class="archive-article-date">
+  	<time datetime="2020-04-12T04:40:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mysql数据库基本操作"><a href="#Mysql数据库基本操作" class="headerlink" title="Mysql数据库基本操作"></a>Mysql数据库基本操作</h1><h3 id="命令行进入数据库"><a href="#命令行进入数据库" class="headerlink" title="命令行进入数据库"></a>命令行进入数据库</h3><p>以root身份进入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+<img src="/src/mysql学习笔记/1/1.png">
+
+<h3 id="显示所有数据库"><a href="#显示所有数据库" class="headerlink" title="显示所有数据库"></a>显示所有数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> databases;</span><br></pre></td></tr></table></figure>
+<img src="/src/mysql学习笔记/1/2.png" width=50%>
+
+<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><p>创建名为learn的数据库</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> database learn;</span><br></pre></td></tr></table></figure>
+<img src="/src/mysql学习笔记/1/3.png" width=70%>
+
+<h3 id="切换数据库"><a href="#切换数据库" class="headerlink" title="切换数据库"></a>切换数据库</h3><p>切换到刚刚创建的数据库learn</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use learn;</span><br></pre></td></tr></table></figure>
+<h3 id="查看数据库中的表"><a href="#查看数据库中的表" class="headerlink" title="查看数据库中的表"></a>查看数据库中的表</h3><p>查看数据库learn中的表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use learn;</span><br><span class="line"><span class="keyword">show</span> tables;</span><br></pre></td></tr></table></figure>
+<img src="/src/mysql学习笔记/1/4.png" width=45%>
+
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><p>删除数据库learn</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> database learn;</span><br></pre></td></tr></table></figure>
+<img src="/src/mysql学习笔记/1/5.png" width=80%>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/12/mysql/mysql-Notes_1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql/mysql字符集问题_1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/10/mysql/mysql%E5%AD%97%E7%AC%A6%E9%9B%86%E9%97%AE%E9%A2%98_1/">mysql字符集编码问题（或导入Excel时出现） Incorrect string value ... at row 1 解决方法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/10/mysql/mysql%E5%AD%97%E7%AC%A6%E9%9B%86%E9%97%AE%E9%A2%98_1/" class="archive-article-date">
+  	<time datetime="2020-04-10T14:44:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>从excel中导入mysql数据库中时出现此问题，开始以为是excel中数据有问题，网上搜了之后在此记录一下。</p>
+<h1 id="错误信息"><a href="#错误信息" class="headerlink" title="错误信息"></a>错误信息</h1><img src="/src/mysql字符集问题/mysql字符集问题_1.png">
+
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><h2 id="运行命令"><a href="#运行命令" class="headerlink" title="运行命令"></a>运行命令</h2><pre><code>ALTER TABLE testtable CHARACTER SET utf8mb4;</code></pre>
+<img src="/src/mysql字符集问题/mysql字符集问题.png">
+testtable是我的表名，改成自己的再重新导入即可。
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/10/mysql/mysql%E5%AD%97%E7%AC%A6%E9%9B%86%E9%97%AE%E9%A2%98_1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-EnglishRepository/words_39" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/01/EnglishRepository/words_39/">words_39</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/01/EnglishRepository/words_39/" class="archive-article-date">
+  	<time datetime="2020-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <style>
+    h {
+        color: #539fff;
+        font-size: 18px;
+    }
+    n {
+        color: #aaaaaa;
+        font-style: oblique;
+    }
+    w {
+      color: #35c1f0;
+    }
+</style>
+
+<h1 id="百词斩-雅思-2020-04-01"><a href="#百词斩-雅思-2020-04-01" class="headerlink" title="百词斩 雅思 2020/04/01"></a>百词斩 雅思 2020/04/01</h1><p><em>total 23 words 1 similar</em></p>
+<p><h>atlas</h></p>
+<ul>
+<li><n>n.</n> 地图集</li>
+<li>a book of maps</li>
+<li><n>exp.</n> The atlas contains information about all the countries in the world.</li>
+</ul>
+<hr>
+<p><h>bureaucracy</h></p>
+<ul>
+<li><n>n.</n> 官僚主义；政府机构</li>
+<li>the system of official rules and ways of doing things that a government or an organization has, especially when these seem to be too complicated</li>
+<li><n>exp.</n> The bureaucracy always makes people go through unnecessary procedures.</li>
+</ul>
+<hr>
+<p><h>inaugurate</h></p>
+<ul>
+<li><n>v.</n> 为···揭幕；为···举行就职典礼；开展</li>
+<li>to officially open a building or start an organization with a special ceremony</li>
+<li><n>exp.</n> By cutting this ribbon, we inaugurate the opening of the new store!</li>
+</ul>
+<hr>
+<p><h>vent</h></p>
+<ul>
+<li><n>n.</n> 通风口，排气口；</li>
+<li><n>exp.</n> The vent takes old air out and pushes fresh air in.</li>
+<li><n>v.</n> 发泄 (情绪)，开孔，泄露</li>
+</ul>
+<hr>
+<p><h>dispute</h></p>
+<ul>
+<li><n>n.</n> 争论，争端；</li>
+<li>an argument or a disagreement between two people, groups or countries; discussion about a subject where there is disagreement</li>
+<li><n>exp.</n> They had a dispute over who should be his dance partner.</li>
+<li><n>v.</n> 争执，驳斥</li>
+</ul>
+<hr>
+<p><h>resume</h></p>
+<ul>
+<li><n>n.</n> 简历；</li>
+<li>a written record of your education and the jobs you have done, that you send when you are applying for a job</li>
+<li><n>exp.</n> The HR team are examining the resumes of the interviewees.</li>
+<li><n>v.</n> 重新开始；继续；</li>
+<li><n>vt.</n> 回到；恢复；重新开始</li>
+</ul>
+<hr>
+<p><h>solitary</h></p>
+<ul>
+<li><n>a.</n> 孤独的，单独的，隐居的</li>
+<li>done alone; without other people; (of a person or an animal) enjoying being alone; frequently spending time alone;</li>
+<li><n>exp.</n> A solitary man is standing in the cold wind alone.</li>
+</ul>
+<hr>
+<p><h>qualitative</h></p>
+<ul>
+<li><n>a.</n> (性) 质的，定性的</li>
+<li>connected with what something is like or how good it is, rather than with how much of it there is</li>
+<li><n>exp.</n> Changes in temperature can lead to qualitative differences.</li>
+</ul>
+<hr>
+<p><h>prosecute</h></p>
+<ul>
+<li><n>v.</n> 起诉；做检察官；从事</li>
+<li>to officially charge somebody with a crime in court</li>
+<li><n>exp.</n> He was prosecuted because of owing his friends’ money.</li>
+</ul>
+<hr>
+<p><h>staple</h></p>
+<ul>
+<li><n>v.</n> 用订书钉订；</li>
+<li>to attach one thing to another using a staple or staples</li>
+<li><n>exp.</n> Please staples the two sheets of paper together.</li>
+<li><n>n.</n> 订书钉；主食；主要产品；</li>
+<li><n>a.</n> 主要的；基本的；标准的</li>
+</ul>
+<hr>
+<p><h>beam</h></p>
+<ul>
+<li><n>n.</n> 光线；(房屋等) 大梁；(横) 梁；</li>
+<li>a line of light, electric waves or particles</li>
+<li><n>exp.</n> A sun beam reaches down through the clouds.</li>
+<li><n>v.</n> 发光；照射；发射，播送</li>
+</ul>
+<hr>
+<p><h>commute</h></p>
+<ul>
+<li><n>v.</n> 经常乘车往返于两地之间；</li>
+<li>to travel regularly by bus, train, car, etc. between your place of work and your home</li>
+<li><n>exp.</n> I commute from my home to the office by bus every day.</li>
+<li><n>n.</n> 在两地之间乘车往返；</li>
+<li><n>vt.</n> 减免</li>
+</ul>
+<hr>
+<p><h>versatile</h></p>
+<ul>
+<li><n>a.</n> 万能的，综合的，多才多艺的</li>
+<li>(of a person) able to do many different thing; (of food, a building, etc.) having many different uses</li>
+<li><n>exp.</n> He’s a versatile musician who can play a  wide variety of musical instruments.</li>
+</ul>
+<hr>
+<p><h>verbal</h></p>
+<ul>
+<li><n>a.</n> 言语的，口头的，动词的</li>
+<li>relating to words; spoken, not written; relating to verbs</li>
+<li><n>exp.</n> Thanks to her great verbal skills she delivered a brilliant presentation.</li>
+</ul>
+<hr>
+<p><h>embody</h></p>
+<ul>
+<li><n>v.</n> 体现，象征</li>
+<li>to express or represent an idea or a quality</li>
+<li><n>exp.</n> The lotus flower embodies purity and integrity.</li>
+</ul>
+<hr>
+<p><h>batch</h></p>
+<ul>
+<li><n>n.</n> 一批 (人或物)；一批生产量</li>
+<li>a number of people or things that are dealt with as a group</li>
+<li><n>exp.</n> I just finished this batch of cookies - would you like one?</li>
+</ul>
+<hr>
+<p><h>premise</h></p>
+<ul>
+<li><n>n.</n> 前提；房屋地基；</li>
+<li>a statement or an idea that forms the basis for a reasonable line of argument</li>
+<li><n>exp.</n> This is the movie’s premise; Two people are trapped on an island and they end up falling in love!</li>
+<li><n>v.</n> 假定</li>
+</ul>
+<hr>
+<p><h>deviate</h></p>
+<ul>
+<li><n>v.</n> 偏离；背离</li>
+<li>to be different from something; to do something in a different way from what is usual or expected</li>
+<li><n>exp.</n> The hiker has deviated from the main route; let’s hope he can reach his destination.</li>
+</ul>
+<hr>
+<p><h>glacier</h></p>
+<ul>
+<li><n>n.</n> 冰川，冰河</li>
+<li>a large mass of ice, formed by snow on mountains, </li>
+<li><n>exp.</n> The glacier is made up of big blocks of ice.</li>
+</ul>
+<hr>
+<p><h>oversee</h></p>
+<ul>
+<li><n>v.</n> 监督；偷看到，无意中看到</li>
+<li>to watch somebody / something and make sure that a job or an activity is done correctly</li>
+<li><n>exp.</n> The company brought in a new manager to oversee operations.</li>
+<li><n>similar.</n> overhear<ul>
+<li><n>v.</n> 无意中听到，偷听到</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><h>prescribe</h></p>
+<ul>
+<li><n>v.</n> 给···开药；命令，指示</li>
+<li>(of a doctor) to tell somebody to take a particular medicine or have a particular treatment; to write a prescription for a particular medicine, etc.</li>
+<li><n>exp.</n> The doctor prescribed me some medicine for my cold.</li>
+</ul>
+<hr>
+<p><h>psychiatry</h></p>
+<ul>
+<li><n>n.</n> 精神病治疗法</li>
+<li>the study and treatment of mental illness</li>
+<li><n>exp.</n> Psychiatry can be very helpful for patients suffering from mental illness.</li>
+</ul>
+<hr>
+<p><h>hitchhike</h></p>
+<ul>
+<li><n>v.</n> 免费搭乘他人便车</li>
+<li>to get a ride in a passing vehicle by holding out your arm with your thumb up as you stand on the side of the road</li>
+<li><n>exp.</n> The girl sitting on the roadside is trying to hitchhike.</li>
+</ul>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">EnglishRepositoryOfWords</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/01/EnglishRepository/words_39/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-EnglishRepository/words_38" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1585,744 +2018,6 @@
 
 
   
-    <article id="post-EnglishRepository/words_31" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/23/EnglishRepository/words_31/">words_31</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/23/EnglishRepository/words_31/" class="archive-article-date">
-  	<time datetime="2020-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <style>
-    h {
-        color: #539fff;
-        font-size: 18px;
-    }
-    n {
-        color: #aaaaaa;
-        font-style: oblique;
-    }
-    w {
-      color: #35c1f0;
-    }
-</style>
-
-<h1 id="百词斩-雅思-2020-03-23"><a href="#百词斩-雅思-2020-03-23" class="headerlink" title="百词斩 雅思 2020/03/23"></a>百词斩 雅思 2020/03/23</h1><p><em>total 25 words</em></p>
-<p><h>hinder</h></p>
-<ul>
-<li><n>v.</n> 阻碍，妨碍</li>
-<li>to make it difficult for somebody to do something or for something to happen</li>
-<li><n>exp.</n> The obstacle really hinders my forward progress.</li>
-</ul>
-<hr>
-<p><h>impetus</h></p>
-<ul>
-<li><n>n.</n> 推动力；促进</li>
-<li>the force or energy with which something moves</li>
-<li><n>exp.</n> His boss’s praise gives him the impetus to work harder.</li>
-</ul>
-<hr>
-<p><h>prone</h></p>
-<ul>
-<li><n>a.</n> 易于···的；有···倾向的；俯卧的</li>
-<li>likely to suffer from something or to do something bad</li>
-<li><n>exp.</n> Dogs are prone to pee indoors.</li>
-</ul>
-<hr>
-<p><h>monotonous</h></p>
-<ul>
-<li><n>a.</n> 单调的，无聊的</li>
-<li>never changing and therefore boring</li>
-<li><n>exp.</n> My breakfast routine is so monotonous; I eat steamed bread every day.</li>
-</ul>
-<hr>
-<p><h>locomotive</h></p>
-<ul>
-<li><n>n.</n> 机车，火车头</li>
-<li>a railway engine that pulls a train</li>
-<li><n>exp.</n> Old locomotives ran on coal and steam.</li>
-</ul>
-<hr>
-<p><h>breach</h></p>
-<ul>
-<li><n>n.</n> 裂痕；破裂；冲击；违反；</li>
-<li>a break in a relationship between people or countries</li>
-<li><n>exp.</n> The situation became very dangerous because of the breach in the dam.</li>
-<li><n>v.</n> 使有裂口；破坏</li>
-</ul>
-<hr>
-<p><h>ensue</h></p>
-<ul>
-<li><n>v.</n> 跟着发生，接踵而来</li>
-<li>to happen after or as a result of another event</li>
-<li><n>exp.</n> Landslide ensued after the storm.</li>
-</ul>
-<hr>
-<p><h>perish</h></p>
-<ul>
-<li><n>vi.</n> 死去；</li>
-<li>(of people or animals) to die, especially in a sudden violent way</li>
-<li><n>exp.</n> A family of three ducks perished in the fire.</li>
-<li><n>v.</n> 脆裂，老化，腐烂</li>
-</ul>
-<hr>
-<p><h>lateral</h></p>
-<ul>
-<li><n>a.</n> 侧面的；横向的；</li>
-<li>connected with the side of something or with movement to the side</li>
-<li><n>exp.</n> I love your profile - I want a picture with a lateral view of you.</li>
-<li><n>n.</n> 侧面部分</li>
-</ul>
-<hr>
-<p><h>blunder</h></p>
-<ul>
-<li><n>n.</n> 愚蠢之举；大错；</li>
-<li>a stupid or careless mistake</li>
-<li><n>exp.</n> He forgot to bring his parachute! What a terrible blunder that is!</li>
-<li><n>vi.</n> 犯大错；</li>
-<li><n>v.</n> 失策；绊倒</li>
-</ul>
-<hr>
-<p><h>lump</h></p>
-<ul>
-<li><n>n.</n> 肿块；粗笨的人；</li>
-<li>a swelling under the skin, sometimes a sign of serious illness</li>
-<li><n>exp.</n> There is a lump on his neck.</li>
-<li><n>v.</n> 成团，成堆；使成块；</li>
-<li><n>n.</n> 一小方块 (糖)</li>
-</ul>
-<hr>
-<p><h>diminish</h></p>
-<ul>
-<li><n>v.</n> 减少；失势，削弱···的权势，减弱···的权势</li>
-<li>to become or to make something become smaller, weaker, etc.</li>
-<li><n>exp.</n> This is terrible! Our profits are still diminishing, why?</li>
-</ul>
-<hr>
-<p><h>glamour</h></p>
-<ul>
-<li><n>n.</n> 魅力；诱惑力</li>
-<li>physical beauty that also suggests wealth or success</li>
-<li><n>exp.</n> Her glamour impresses me every time I see her.</li>
-</ul>
-<hr>
-<p><h>shaft</h></p>
-<ul>
-<li><n>n.</n> 柄；轴；杆状物；</li>
-<li>the long narrow part of an arrow, hammer, golf club, etc.</li>
-<li><n>exp.</n> A croquet mallet has a thin shaft and a heavy head.</li>
-<li><n>vt.</n> 给···装杆；</li>
-<li><n>v.</n> 苟刻地对待</li>
-</ul>
-<hr>
-<p><h>sightseeing</h></p>
-<ul>
-<li><n>n.</n> 游览；观光</li>
-<li>the activity of visiting the famous or interesting places of an area</li>
-<li><n>exp.</n> I like to go sightseeing around seaside towns.</li>
-</ul>
-<hr>
-<p><h>pendulum</h></p>
-<ul>
-<li><n>n.</n> 摆，钟摆；摇摆不定的事态 (或局面)</li>
-<li>a long straight part with a weight at the end that moves regularly from side to side to control the movement of a clock</li>
-<li><n>exp.</n> The pendulum of the clock swung back and forth.</li>
-</ul>
-<hr>
-<p><h>augment</h></p>
-<ul>
-<li><n>v.</n> 增加；助长</li>
-<li>to increase the amount, value, size, etc. of something</li>
-<li><n>exp.</n> He augmented his income through freelance writing/</li>
-</ul>
-<hr>
-<p><h>crumble</h></p>
-<ul>
-<li><n>v.</n> 弄碎；使破碎；崩溃；破灭；</li>
-<li>to break or break something into very small pieces</li>
-<li><n>exp.</n> He crumbled the snack noodle into pieces before eating it.</li>
-<li><n>n.</n> 碎屑；面包屑</li>
-</ul>
-<hr>
-<p><h>scrap</h></p>
-<ul>
-<li><n>n.</n> 废金属；小块，小片；碎片；口角，吵架；</li>
-<li>a small piece of something, especially paper, cloth, etc.</li>
-<li><n>exp.</n> All these old cars will be used as scrap.</li>
-<li><n>v.</n> 报废；舍弃；打架</li>
-</ul>
-<hr>
-<p><h>slum</h></p>
-<ul>
-<li><n>n.</n> 贫民窟，贫民区，陋巷</li>
-<li>an area of a city that is very poor and where the houses are dirty and in bad condition</li>
-<li><n>exp.</n> The living conditions in this slum are shockingly poor.</li>
-</ul>
-<hr>
-<p><h>instantaneous</h></p>
-<ul>
-<li><n>a.</n> 瞬间的；即刻的；猝发的</li>
-<li>happening immediately</li>
-<li><n>exp.</n> When stabbing the balloon, there was an instantaneous burst.</li>
-</ul>
-<hr>
-<p><h>imperative</h></p>
-<ul>
-<li><n>a.</n> 必要的；祈使的；急需的；</li>
-<li>very important and needing immediate attention or action</li>
-<li><n>exp.</n> It is imperative to call 119 if your house is on fire.</li>
-<li><n>n.</n> 命令；必要的事；义务；驱使</li>
-</ul>
-<hr>
-<p><h>plunge</h></p>
-<ul>
-<li><n>v.</n> 跳进，(使) 投入；使陷入；暴跌；</li>
-<li>to move or make somebody / something move suddenly forwards and / or downwards; to move up and down suddenly and violently</li>
-<li><n>exp.</n> The sportswoman plunged into the water, splash!</li>
-</ul>
-<hr>
-<p><h>manure</h></p>
-<ul>
-<li><n>n.</n> 肥料；</li>
-<li>the waste matter from animals that is spread over or mixed with the soil to help plants and crops grow</li>
-<li><n>exp.</n> The farmer adds manure to the crops to help them grow.</li>
-<li><n>v.</n> 施肥于</li>
-</ul>
-<hr>
-<p><h>ingenious</h></p>
-<ul>
-<li><n>a.</n> 聪明的；有发明天才的；有独创性的，别出心裁的</li>
-<li>(of a person) having a lot of clever new ideas and good at inventing things</li>
-<li><n>exp.</n> He’s an ingenious boy who always has wonderful ideas.</li>
-</ul>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">EnglishRepositoryOfWords</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/23/EnglishRepository/words_31/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-EnglishRepository/words_30" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/22/EnglishRepository/words_30/">words_30</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/22/EnglishRepository/words_30/" class="archive-article-date">
-  	<time datetime="2020-03-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <style>
-    h {
-        color: #539fff;
-        font-size: 18px;
-    }
-    n {
-        color: #aaaaaa;
-        font-style: oblique;
-    }
-    w {
-      color: #35c1f0;
-    }
-</style>
-
-<h1 id="百词斩-雅思-2020-03-22"><a href="#百词斩-雅思-2020-03-22" class="headerlink" title="百词斩 雅思 2020/03/22"></a>百词斩 雅思 2020/03/22</h1><p><em>total 20 words</em></p>
-<p><h>retain</h></p>
-<ul>
-<li><n>v.</n> 保持，保留，保存</li>
-<li>to keep something; to continue to have something; to continue to hold or contain something;</li>
-<li><n>exp.</n> Hot water can retain its heat for hours in the vacuum cup.</li>
-</ul>
-<hr>
-<p><h>decimal</h></p>
-<ul>
-<li><n>n.</n> 小数；</li>
-<li>a fraction (= a number less than one) that is shown as a dot or point followed by the number of tenths, hundredths, etc.</li>
-<li><n>exp.</n> The decimal 0.5 is less than 1.</li>
-<li><n>a.</n> 小数的；十进制的</li>
-</ul>
-<hr>
-<p><h>scorn</h></p>
-<ul>
-<li><n>n.</n> 鄙视；</li>
-<li>a strong feeling that somebody / something is stupid or not good enough, usually shown by the way you speak</li>
-<li><n>exp.</n> She scorned her work colleague who just read magazines all day.</li>
-<li><n>v.</n> 轻蔑；对···不屑一顾</li>
-</ul>
-<hr>
-<p><h>overwhelm</h></p>
-<ul>
-<li><n>v.</n> 压垮；打败，压倒</li>
-<li>to have such a strong emotional effect on somebody that it is difficult for them to resist or know how to react</li>
-<li><n>exp.</n> She is being totally overwhelmed by her work load.</li>
-</ul>
-<hr>
-<p><h>speculate</h></p>
-<ul>
-<li><n>vt.</n> 推测；</li>
-<li>to form an opinion about something without knowing all thee details or facts</li>
-<li><n>exp.</n> I speculate the trend of foreign exchange market to make money.</li>
-<li><n>vi.</n> 投机，做投机买卖；推测，猜测</li>
-</ul>
-<hr>
-<p><h>defiance</h></p>
-<ul>
-<li><n>n.</n> 蔑视；抗议，反抗；挑战</li>
-<li>the act of defying someone or something; a refusal to obey something or someone</li>
-<li><n>exp.</n> There’s a look of defiance on his face.</li>
-</ul>
-<hr>
-<p><h>grant</h></p>
-<ul>
-<li><n>v.</n> 给予，许可，授予；</li>
-<li>to agree to give somebody what they ask for, especially formal or legal permission to do something</li>
-<li><n>exp.</n> The Subway Committee grants the blind permission to bring guide dogs on board.</li>
-<li><n>n.</n> 许可</li>
-</ul>
-<hr>
-<p><h>expel</h></p>
-<ul>
-<li><n>v.</n> 罚出，开除；排出；开除；驱逐</li>
-<li>to officially make somebody leave a school or an organization</li>
-<li><n>exp.</n> The referee expels a player from the game for not playing by the rules.</li>
-</ul>
-<hr>
-<p><h>orthodox</h></p>
-<ul>
-<li><n>a.</n> 正统的</li>
-<li>(especially of beliefs or behavior) generally accepted or approved of; following generally accepted beliefs</li>
-<li><n>exp.</n> The Greek orthodox church with blue domes is so beautiful.</li>
-</ul>
-<hr>
-<p><h>spill</h></p>
-<ul>
-<li><n>v.</n> 使流出；浇 (花等) ；</li>
-<li>to cause or allow (something) to fall, flow, or run over the edge of a container usually in an accidental way</li>
-<li><n>exp.</n> Oh no, I’ve spilled the green nail polish.</li>
-<li><n>n.</n> 溢出，溅出</li>
-</ul>
-<hr>
-<p><h>superficial</h></p>
-<ul>
-<li><n>a.</n> 表面的；肤浅的；微不足道的；</li>
-<li>not studying or looking at something thoroughly; seeing only what is obvious</li>
-<li><n>exp.</n> The house may look new, but it’s all superficial.</li>
-<li><n>n.</n> 表面文章</li>
-</ul>
-<hr>
-<p><h>eminent</h></p>
-<ul>
-<li><n>a.</n> 杰出的</li>
-<li>(of people) famous and respected, especially in a particular profession</li>
-<li><n>exp.</n> He is the eminent Chinese writer who won the Nobel Prize.</li>
-</ul>
-<hr>
-<p><h>graze</h></p>
-<ul>
-<li><n>v.</n> (牲畜) 吃草；</li>
-<li>(of cows, sheep, etc.) to eat grass that is growing in a field</li>
-<li><n>exp.</n> Cows are grazing on the grass in the meadow.</li>
-<li><n>n.</n> 擦，擦伤</li>
-</ul>
-<hr>
-<p><h>odd</h></p>
-<ul>
-<li><n>a.</n> 奇怪的；古怪的；奇数的</li>
-<li>strange or unusual</li>
-<li><n>exp.</n> It is so odd of him to be like this.</li>
-</ul>
-<hr>
-<p><h>stipulate</h></p>
-<ul>
-<li><n>v.</n> 规定；保证；要求以···为条件</li>
-<li>to state clearly and firmly that something must be done, or how it must be done</li>
-<li><n>exp.</n> The confidentially agreements stipulate that moviegoers can not reveal any plot of the movie.<br>保密协议规定，所有观影人不得透露影片的任何情节。</li>
-</ul>
-<hr>
-<p><h>seam</h></p>
-<ul>
-<li><n>n.</n> 接缝；缝；地层</li>
-<li>a line along which two edges of cloth, etc. are joined or sewn together</li>
-<li><n>exp.</n> There are seams on this white cloth.</li>
-</ul>
-<hr>
-<p><h>avert</h></p>
-<ul>
-<li><n>v.</n> 转移 (目光，注意力等) ；防止；避开</li>
-<li>to turn your eyes, etc. away from something that you do not want to see</li>
-<li><n>exp.</n> They all averted their eyes from each other.</li>
-</ul>
-<hr>
-<p><h>thermal</h></p>
-<ul>
-<li><n>a.</n> 保暖的；温泉的；</li>
-<li>(of clothing) designed to keep you warm by preventing heat from escaping from the body</li>
-<li><n>exp.</n> Gloves, scarfs and thermal underwear help keep you warm in winter.</li>
-<li><n>n.</n> 保暖内衣裤</li>
-</ul>
-<hr>
-<p><h>succession</h></p>
-<ul>
-<li><n>n.</n> 一连串；连续，继续</li>
-<li>a number of people or things that follow each other in time or order</li>
-<li><n>exp.</n> A succession of horses passed us in the forest.</li>
-</ul>
-<hr>
-<p><h>exquisite</h></p>
-<ul>
-<li><n>a.</n> 精致的，精选的</li>
-<li>extremely beautiful or carefully made</li>
-<li><n>exp.</n> I’ve spent all my cash to buy you this exquisite necklace.</li>
-</ul>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">EnglishRepositoryOfWords</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/22/EnglishRepository/words_30/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-EnglishRepository/words_29" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/21/EnglishRepository/words_29/">words_29</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/21/EnglishRepository/words_29/" class="archive-article-date">
-  	<time datetime="2020-03-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <style>
-    h {
-        color: #539fff;
-        font-size: 18px;
-    }
-    n {
-        color: #aaaaaa;
-        font-style: oblique;
-    }
-    w {
-      color: #35c1f0;
-    }
-</style>
-
-<h1 id="百词斩-雅思-2020-03-21"><a href="#百词斩-雅思-2020-03-21" class="headerlink" title="百词斩 雅思 2020/03/21"></a>百词斩 雅思 2020/03/21</h1><p><em>total 19 words</em></p>
-<p><h>session</h></p>
-<ul>
-<li><n>n.</n> (法庭的) 开庭；(议会等的) 开会</li>
-<li>a formal meeting or series of meetings of a court, a parliament, etc.; a period of time when such meetings are held; a period of time that is spent doing a particular activity</li>
-<li><n>exp.</n> The court is in session, and the lawyer is presenting the evidence.</li>
-</ul>
-<hr>
-<p><h>maneuver</h></p>
-<ul>
-<li><n>v.</n> 操纵；</li>
-<li>a movement performed with care and skill; a clever plan, action or movement that is used to give somebody an advantage</li>
-<li><n>exp.</n> The skilled pilot can maneuver the helicopter very well.</li>
-<li><n>n.</n> 花招</li>
-</ul>
-<hr>
-<p><h>hazardous</h></p>
-<ul>
-<li><n>a.</n> 有危险的；碰运气的</li>
-<li>involving risk or danger, especially to somebody’s health or safety</li>
-<li><n>exp.</n> It is hazardous to touch the tiger’s butt.</li>
-</ul>
-<hr>
-<p><h>hurl</h></p>
-<ul>
-<li><n>v.</n> 用力投掷</li>
-<li>to throw something / somebody violently in a particular direction</li>
-<li><n>exp.</n> When she graduated, she hurled her books into the air.</li>
-</ul>
-<hr>
-<p><h>portfolio</h></p>
-<ul>
-<li><n>n.</n> 公文包，文件夹，投资组合</li>
-<li>a thin flat case used for carrying documents, drawings, etc.; (finance) a set of shares owned by a particular person or organization</li>
-<li><n>exp.</n> He checked his portfolio to find some documents.</li>
-</ul>
-<hr>
-<p><h>practicable</h></p>
-<ul>
-<li><n>a.</n> 能实行的，行得通的</li>
-<li>able to be done; likely to be successful</li>
-<li><n>exp.</n> The boy put forward a practicable solution to get the weight of the elephant.</li>
-</ul>
-<hr>
-<p><h>intent</h></p>
-<ul>
-<li><n>a.</n> 全神贯注的；专心致志的；</li>
-<li><n>exp.</n> He looked at the computer screen with an intent expression.</li>
-<li><n>n.</n> 意图；意向；目的</li>
-</ul>
-<hr>
-<p><h>gloomy</h></p>
-<ul>
-<li><n>a.</n> 愁容满面的，阴暗的，没有希望的</li>
-<li>nearly dark, or badly lit in a way that makes you feel sad; sad and without hope; without much hope of success or happiness in the future</li>
-<li><n>exp.</n> The little boy is in a really gloomy mood.</li>
-</ul>
-<hr>
-<p><h>appreciable</h></p>
-<ul>
-<li><n>a.</n> 可察觉的；很可观的；可感知的；可评估的</li>
-<li>large enough to be noticed or thought important</li>
-<li><n>exp.</n> The girl went through an appreciable change in looks.</li>
-</ul>
-<hr>
-<p><h>excess</h></p>
-<ul>
-<li><n>a.</n> 额外的，过量的，过度的，附加的；</li>
-<li>in addition to an amount that is necessary, usual or legal</li>
-<li><n>exp.</n> A man threw an excess of chickpea into the bin after dinner.</li>
-<li><n>n.</n> 超越，超过，过度</li>
-</ul>
-<hr>
-<p><h>nevertheless</h></p>
-<ul>
-<li><n>adv.</n> 然而，不过；尽管如此，不过，仍然</li>
-<li>despite something that you have just mentioned</li>
-<li><n>exp.</n> The dog laughed at the rabbit. Nevertheless, the rabbit still helped him out.</li>
-</ul>
-<hr>
-<p><h>fret</h></p>
-<ul>
-<li><n>v.</n> 使烦恼，使焦急；</li>
-<li>to be worried or unhappy and not able to relax</li>
-<li><n>exp.</n> Don’t fret; I’m sure your dog will be fine!</li>
-<li><n>n.</n> (斑卓琴、吉他、曼陀林琴等弦乐器指板上定音的) 档</li>
-</ul>
-<hr>
-<p><h>rectify</h></p>
-<ul>
-<li><n>v.</n> 纠正；修复</li>
-<li>to put right something that is wrong</li>
-<li><n>exp.</n> I made a mistake, so I quickly rectified it.</li>
-</ul>
-<hr>
-<p><h>terrific</h></p>
-<ul>
-<li><n>a.</n> 极好的；可怕的；(尺寸或程度) 极其巨大的，大的惊人的</li>
-<li>excellent; wonderful</li>
-<li><n>exp.</n> She feels terrific as she has successfully lost weight.</li>
-</ul>
-<hr>
-<p><h>preceding</h></p>
-<ul>
-<li><n>a.</n> 在前的，在先的</li>
-<li>to happen before something or come before something / somebody in order; to go in front of somebody</li>
-<li><n>exp.</n> Click this button to browse the preceding text.</li>
-</ul>
-<hr>
-<p><h>cart</h></p>
-<ul>
-<li><n>n.</n> 手推车，运货马车；</li>
-<li><n>exp.</n> Carts are useful for carrying goods in the supermarket.</li>
-<li><n>v.</n> 用车装载</li>
-</ul>
-<hr>
-<p><h>defer</h></p>
-<ul>
-<li><n>v.</n> 使推迟，使延期；</li>
-<li>to delay something until a later time</li>
-<li><n>exp.</n> This country deferred the male citizens’ retirement age from 60 to 70.</li>
-</ul>
-<hr>
-<p><h>wrench</h></p>
-<ul>
-<li><n>n.</n> 扳手；痛苦，难受；</li>
-<li>a metal tool with a specially shaped end for holding and turning things, including one which can be adjusted to fit objects of different sizes, also called a monkey wrench or an adjustable spanner</li>
-<li><n>exp.</n> The worker used a wrench to repair the sink.</li>
-<li><n>v.</n> 使扭伤</li>
-</ul>
-<hr>
-<p><h>comic</h></p>
-<ul>
-<li><n>a.</n> 滑稽的，喜剧的，漫画的；</li>
-<li>amusing and making you laugh; connected with comedy (= entertainment that is funny and that makes people laugh)</li>
-<li><n>exp.</n> His comic actions often make us laugh.</li>
-<li><n>n.</n> 连环漫画杂志</li>
-</ul>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">EnglishRepositoryOfWords</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/21/EnglishRepository/words_29/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -2432,10 +2127,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Ajax学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">mysql学习笔记</a>
               </li>
              
@@ -2453,6 +2144,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Tutorials</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Translation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
             
             <div class="clearfix"></div>
