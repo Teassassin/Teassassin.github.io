@@ -154,6 +154,263 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Verilog/CPU/ori指令说明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/30/Verilog/CPU/ori%E6%8C%87%E4%BB%A4%E8%AF%B4%E6%98%8E/">ori指令说明</a>
+    </h1>
+  
+
+        
+        <a href="/2021/01/30/Verilog/CPU/ori%E6%8C%87%E4%BB%A4%E8%AF%B4%E6%98%8E/" class="archive-article-date">
+  	<time datetime="2021-01-30T04:03:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="ori指令说明"><a href="#ori指令说明" class="headerlink" title="ori指令说明"></a>ori指令说明</h2><p>ori是进行逻辑“或”运算的指令<br>指令码 <strong>6’b001101</strong></p>
+<h3 id="指令格式"><a href="#指令格式" class="headerlink" title="指令格式"></a>指令格式</h3><table>
+<thead>
+<tr>
+<th>31   ~   26</th>
+<th>25 ~ 21</th>
+<th>20 ~ 16</th>
+<th>15   ~    0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ORI 001101</td>
+<td>rs</td>
+<td>rt</td>
+<td>immediate</td>
+</tr>
+</tbody></table>
+<h3 id="指令用法"><a href="#指令用法" class="headerlink" title="指令用法"></a>指令用法</h3><p>ori rs, rt, immediate</p>
+<h3 id="指令作用"><a href="#指令作用" class="headerlink" title="指令作用"></a>指令作用</h3><p>将指令中的16位立即数immediate进行无符号拓展至32位，然后与索引位rs的通用寄存器的值进行逻辑“或”运算，运算结果保存到索引为rt的通用寄存器中</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CPU</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/01/30/Verilog/CPU/ori%E6%8C%87%E4%BB%A4%E8%AF%B4%E6%98%8E/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Verilog/CPU/代码风格及模块描述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/29/Verilog/CPU/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E5%8F%8A%E6%A8%A1%E5%9D%97%E6%8F%8F%E8%BF%B0/">代码风格及模块描述</a>
+    </h1>
+  
+
+        
+        <a href="/2021/01/29/Verilog/CPU/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E5%8F%8A%E6%A8%A1%E5%9D%97%E6%8F%8F%E8%BF%B0/" class="archive-article-date">
+  	<time datetime="2021-01-29T14:13:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="代码风格"><a href="#代码风格" class="headerlink" title="代码风格"></a>代码风格</h2><h3 id="变量及端口定义"><a href="#变量及端口定义" class="headerlink" title="变量及端口定义"></a>变量及端口定义</h3><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">e; <span class="comment">// enable使能</span></span><br><span class="line">w; <span class="comment">// write写入</span></span><br><span class="line">r; <span class="comment">// read读取</span></span><br><span class="line">addr; <span class="comment">// address地址</span></span><br><span class="line"><span class="keyword">reg</span>; <span class="comment">// 寄存器</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rst; <span class="comment">// reset复位</span></span><br><span class="line">clk; <span class="comment">// clock时钟</span></span><br><span class="line">waddr; <span class="comment">// write address写入地址</span></span><br><span class="line">wdata; <span class="comment">// wirte data写入数据</span></span><br><span class="line">we; <span class="comment">// write enable写入使能信号</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Regfile模块描述"><a href="#Regfile模块描述" class="headerlink" title="Regfile模块描述"></a>Regfile模块描述</h2><p>实现了32个32位通用整数寄存器，可以同时进行两个寄存器的读操作和一个寄存器的写操作</p>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">接口名</th>
+<th align="center">宽度（bit）</th>
+<th align="center">输入/输出</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">rst</td>
+<td align="center">1</td>
+<td align="center">输入</td>
+<td align="center">复位信号，高电平有效</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">clk</td>
+<td align="center">1</td>
+<td align="center">输入</td>
+<td align="center">时钟信号</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">waddr</td>
+<td align="center">5</td>
+<td align="center">输入</td>
+<td align="center">要写入的寄存器地址</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">wdata</td>
+<td align="center">32</td>
+<td align="center">输入</td>
+<td align="center">要写入的数据</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">we</td>
+<td align="center">1</td>
+<td align="center">输入</td>
+<td align="center">写使能信号</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">raddr1</td>
+<td align="center">5</td>
+<td align="center">输入</td>
+<td align="center">第一个读寄存器端口要读取的寄存器的地址</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">re1</td>
+<td align="center">1</td>
+<td align="center">输入</td>
+<td align="center">第一个读寄存器端口使能信号</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">rdata1</td>
+<td align="center">32</td>
+<td align="center">输出</td>
+<td align="center">第一个读寄存器端口输出的寄存器值</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="center">raddr2</td>
+<td align="center">5</td>
+<td align="center">输入</td>
+<td align="center">第二个读寄存器端口要读取的寄存器的地址</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center">re2</td>
+<td align="center">1</td>
+<td align="center">输入</td>
+<td align="center">第二个读寄存器端口读使能信号</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="center">rdata2</td>
+<td align="center">32</td>
+<td align="center">输出</td>
+<td align="center">第二个读寄存器端口输出的寄存器值</td>
+</tr>
+</tbody></table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CPU</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/01/29/Verilog/CPU/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E5%8F%8A%E6%A8%A1%E5%9D%97%E6%8F%8F%E8%BF%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Python/conda使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -878,179 +1135,9 @@
 
 
   
-    <article id="post-mysql/mysql-Notes_3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/15/mysql/mysql-Notes_3/">mysql学习笔记_3 - 定义_修改_删除数据表</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/15/mysql/mysql-Notes_3/" class="archive-article-date">
-  	<time datetime="2020-04-15T03:15:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="数据表的基本操作"><a href="#数据表的基本操作" class="headerlink" title="数据表的基本操作"></a>数据表的基本操作</h1><h2 id="定义数据表"><a href="#定义数据表" class="headerlink" title="定义数据表"></a>定义数据表</h2><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span>(</span><br><span class="line">    <span class="operator">&lt;</span>列名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>[<span class="operator">&lt;</span>列级完整性约束条件<span class="operator">&gt;</span>]</span><br><span class="line">    [, <span class="operator">&lt;</span>列名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>[<span class="operator">&lt;</span>列级完整性约束条件<span class="operator">&gt;</span>]]...</span><br><span class="line">    [, <span class="operator">&lt;</span>表级完整性约束条件<span class="operator">&gt;</span>]);</span><br></pre></td></tr></table></figure>
-<h4 id="例1"><a href="#例1" class="headerlink" title="例1"></a>例1</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> student(</span><br><span class="line">    id <span class="type">VARCHAR</span>(<span class="number">11</span>) <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>, <span class="comment">/* id是主码，列级完整性约束 */</span></span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>, <span class="comment">/* name非空 */</span></span><br><span class="line">    age <span class="type">INT</span> <span class="comment">/* age是整型 */</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h4 id="例2"><a href="#例2" class="headerlink" title="例2"></a>例2</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> student(</span><br><span class="line">    id <span class="type">INT</span> <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> AUTO_INCREMENT, <span class="comment">/* id是主码，自增 */</span></span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">UNIQUE</span>, <span class="comment">/* name非空，且取值唯一 */</span></span><br><span class="line">    age <span class="type">SMALLINT</span> <span class="comment">/* 比INT取值范围小 */</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<img src="/src/mysql学习笔记/2/1.png" width=70%>
-
-<h4 id="例3"><a href="#例3" class="headerlink" title="例3"></a>例3</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 也可以将PRIMARY KEY写到表级约束的位置 */</span></span><br><span class="line"><span class="comment">/* 课程 表 */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> course(</span><br><span class="line">    id <span class="type">VARCHAR</span>(<span class="number">12</span>), <span class="comment">/* 课程号 */</span></span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">UNIQUE</span>,</span><br><span class="line">    pid <span class="type">VARCHAR</span>(<span class="number">12</span>), <span class="comment">/* 先修课 */</span></span><br><span class="line">    credit <span class="type">SMALLINT</span>,</span><br><span class="line">    <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>(id),</span><br><span class="line">    <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span>(pid) <span class="keyword">REFERENCES</span> course(id) <span class="comment">/* pid是外码，被参照表是course，被参照列是id */</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>如果外码pid的取值不是id列中的值<br><img src="/src/mysql学习笔记/2/2.png" width=90%></p>
-<h2 id="修改数据表"><a href="#修改数据表" class="headerlink" title="修改数据表"></a>修改数据表</h2><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span></span><br><span class="line">    [<span class="keyword">ADD</span> <span class="operator">&lt;</span>新列名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>[完整性约束]]</span><br><span class="line">    [MODIFY <span class="operator">&lt;</span>字段名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>]</span><br><span class="line">    [<span class="keyword">CONSTRAINT</span> <span class="operator">&lt;</span>约束条件<span class="operator">&gt;</span>(<span class="operator">&lt;</span>列名<span class="operator">&gt;</span>)]</span><br></pre></td></tr></table></figure>
-<h4 id="例1-1"><a href="#例1-1" class="headerlink" title="例1"></a>例1</h4><p>以 <a href="####%E4%BE%8B1">定义基本表 - 例1</a> 为例</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> student <span class="keyword">ADD</span> entrance <span class="type">DATE</span>; <span class="comment">/* 增加 “入学时间” 列，类型为DATE */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> student <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> <span class="keyword">UNIQUE</span> KEY(name); <span class="comment">/* 对name列增加UNIQUE约束条件 */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> student MODIFY age <span class="type">SMALLINT</span>; <span class="comment">/* 改变age列为SMALLINT型 */</span></span><br></pre></td></tr></table></figure>
-<p>可以看到entrance列可以选择日期<br><img src="/src/mysql学习笔记/2/3.png" width=70%><br>而且name列不允许重复<br><img src="/src/mysql学习笔记/2/4.png" width=70%></p>
-<h2 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h2><h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 删除数据表student */</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> student;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/15/mysql/mysql-Notes_3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mysql/mysql-Notes_2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/13/mysql/mysql-Notes_2/">mysql学习笔记_2 - 数据表的基本操作</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/13/mysql/mysql-Notes_2/" class="archive-article-date">
-  	<time datetime="2020-04-13T00:21:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="数据表的基本操作"><a href="#数据表的基本操作" class="headerlink" title="数据表的基本操作"></a>数据表的基本操作</h1><h2 id="定义基本表"><a href="#定义基本表" class="headerlink" title="定义基本表"></a>定义基本表</h2><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span>(</span><br><span class="line">    <span class="operator">&lt;</span>列名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>[<span class="operator">&lt;</span>列级完整性约束条件<span class="operator">&gt;</span>]</span><br><span class="line">    [, <span class="operator">&lt;</span>列名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>[<span class="operator">&lt;</span>列级完整性约束条件<span class="operator">&gt;</span>]]...</span><br><span class="line">    [, <span class="operator">&lt;</span>表级完整性约束条件<span class="operator">&gt;</span>]);</span><br></pre></td></tr></table></figure>
-<h4 id="例1"><a href="#例1" class="headerlink" title="例1"></a>例1</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> student(</span><br><span class="line">    id <span class="type">VARCHAR</span>(<span class="number">11</span>) <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>, <span class="comment">/* id是主码，列级完整性约束 */</span></span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>, <span class="comment">/* name非空 */</span></span><br><span class="line">    age <span class="type">INT</span> <span class="comment">/* age是整型 */</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h4 id="例2"><a href="#例2" class="headerlink" title="例2"></a>例2</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> student(</span><br><span class="line">    id <span class="type">INT</span> <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> AUTO_INCREMENT, <span class="comment">/* id是主码，自增 */</span></span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">UNIQUE</span>, <span class="comment">/* name非空，且取值唯一 */</span></span><br><span class="line">    age <span class="type">SMALLINT</span> <span class="comment">/* 比INT取值范围小 */</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<img src="/src/mysql学习笔记/2/1.png" width=70%>
-
-<h4 id="例3"><a href="#例3" class="headerlink" title="例3"></a>例3</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 也可以将PRIMARY KEY写到表级约束的位置 */</span></span><br><span class="line"><span class="comment">/* 课程 表 */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> course(</span><br><span class="line">    id <span class="type">VARCHAR</span>(<span class="number">12</span>), <span class="comment">/* 课程号 */</span></span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">UNIQUE</span>,</span><br><span class="line">    pid <span class="type">VARCHAR</span>(<span class="number">12</span>), <span class="comment">/* 先修课 */</span></span><br><span class="line">    credit <span class="type">SMALLINT</span>,</span><br><span class="line">    <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>(id),</span><br><span class="line">    <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span>(pid) <span class="keyword">REFERENCES</span> course(id) <span class="comment">/* pid是外码，被参照表是course，被参照列是id */</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>如果外码pid的取值不是id列中的值<br><img src="/src/mysql学习笔记/2/2.png" width=90%></p>
-<h2 id="修改基本表"><a href="#修改基本表" class="headerlink" title="修改基本表"></a>修改基本表</h2><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span></span><br><span class="line">    [<span class="keyword">ADD</span> <span class="operator">&lt;</span>新列名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>[完整性约束]]</span><br><span class="line">    [MODIFY <span class="operator">&lt;</span>字段名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>]</span><br><span class="line">    [<span class="keyword">CONSTRAINT</span> <span class="operator">&lt;</span>约束条件<span class="operator">&gt;</span>(<span class="operator">&lt;</span>列名<span class="operator">&gt;</span>)]</span><br></pre></td></tr></table></figure>
-<h4 id="例1-1"><a href="#例1-1" class="headerlink" title="例1"></a>例1</h4><p>以 <a href="####%E4%BE%8B1">定义基本表 - 例1</a> 为例</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> student <span class="keyword">ADD</span> entrance <span class="type">DATE</span>; <span class="comment">/* 增加 “入学时间” 列，类型为DATE */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> student <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> <span class="keyword">UNIQUE</span> KEY(name); <span class="comment">/* 对name列增加UNIQUE约束条件 */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> student MODIFY age <span class="type">SMALLINT</span>; <span class="comment">/* 改变age列为SMALLINT型 */</span></span><br></pre></td></tr></table></figure>
-<p>可以看到entrance列可以选择日期<br><img src="/src/mysql学习笔记/2/3.png" width=70%><br>而且name列不允许重复<br><img src="/src/mysql学习笔记/2/4.png" width=70%></p>
-<h2 id="删除基本表"><a href="#删除基本表" class="headerlink" title="删除基本表"></a>删除基本表</h2><h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 删除数据表student */</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> student;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/13/mysql/mysql-Notes_2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1186,6 +1273,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CPU</a>
               </li>
             
             <div class="clearfix"></div>

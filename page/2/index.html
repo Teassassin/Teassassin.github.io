@@ -154,6 +154,176 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysql/mysql-Notes_3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/15/mysql/mysql-Notes_3/">mysql学习笔记_3 - 定义_修改_删除数据表</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/15/mysql/mysql-Notes_3/" class="archive-article-date">
+  	<time datetime="2020-04-15T03:15:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数据表的基本操作"><a href="#数据表的基本操作" class="headerlink" title="数据表的基本操作"></a>数据表的基本操作</h1><h2 id="定义数据表"><a href="#定义数据表" class="headerlink" title="定义数据表"></a>定义数据表</h2><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span>(</span><br><span class="line">    <span class="operator">&lt;</span>列名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>[<span class="operator">&lt;</span>列级完整性约束条件<span class="operator">&gt;</span>]</span><br><span class="line">    [, <span class="operator">&lt;</span>列名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>[<span class="operator">&lt;</span>列级完整性约束条件<span class="operator">&gt;</span>]]...</span><br><span class="line">    [, <span class="operator">&lt;</span>表级完整性约束条件<span class="operator">&gt;</span>]);</span><br></pre></td></tr></table></figure>
+<h4 id="例1"><a href="#例1" class="headerlink" title="例1"></a>例1</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> student(</span><br><span class="line">    id <span class="type">VARCHAR</span>(<span class="number">11</span>) <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>, <span class="comment">/* id是主码，列级完整性约束 */</span></span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>, <span class="comment">/* name非空 */</span></span><br><span class="line">    age <span class="type">INT</span> <span class="comment">/* age是整型 */</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h4 id="例2"><a href="#例2" class="headerlink" title="例2"></a>例2</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> student(</span><br><span class="line">    id <span class="type">INT</span> <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> AUTO_INCREMENT, <span class="comment">/* id是主码，自增 */</span></span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">UNIQUE</span>, <span class="comment">/* name非空，且取值唯一 */</span></span><br><span class="line">    age <span class="type">SMALLINT</span> <span class="comment">/* 比INT取值范围小 */</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<img src="/src/mysql学习笔记/2/1.png" width=70%>
+
+<h4 id="例3"><a href="#例3" class="headerlink" title="例3"></a>例3</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 也可以将PRIMARY KEY写到表级约束的位置 */</span></span><br><span class="line"><span class="comment">/* 课程 表 */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> course(</span><br><span class="line">    id <span class="type">VARCHAR</span>(<span class="number">12</span>), <span class="comment">/* 课程号 */</span></span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">UNIQUE</span>,</span><br><span class="line">    pid <span class="type">VARCHAR</span>(<span class="number">12</span>), <span class="comment">/* 先修课 */</span></span><br><span class="line">    credit <span class="type">SMALLINT</span>,</span><br><span class="line">    <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>(id),</span><br><span class="line">    <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span>(pid) <span class="keyword">REFERENCES</span> course(id) <span class="comment">/* pid是外码，被参照表是course，被参照列是id */</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>如果外码pid的取值不是id列中的值<br><img src="/src/mysql学习笔记/2/2.png" width=90%></p>
+<h2 id="修改数据表"><a href="#修改数据表" class="headerlink" title="修改数据表"></a>修改数据表</h2><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span></span><br><span class="line">    [<span class="keyword">ADD</span> <span class="operator">&lt;</span>新列名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>[完整性约束]]</span><br><span class="line">    [MODIFY <span class="operator">&lt;</span>字段名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>]</span><br><span class="line">    [<span class="keyword">CONSTRAINT</span> <span class="operator">&lt;</span>约束条件<span class="operator">&gt;</span>(<span class="operator">&lt;</span>列名<span class="operator">&gt;</span>)]</span><br></pre></td></tr></table></figure>
+<h4 id="例1-1"><a href="#例1-1" class="headerlink" title="例1"></a>例1</h4><p>以 <a href="####%E4%BE%8B1">定义基本表 - 例1</a> 为例</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> student <span class="keyword">ADD</span> entrance <span class="type">DATE</span>; <span class="comment">/* 增加 “入学时间” 列，类型为DATE */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> student <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> <span class="keyword">UNIQUE</span> KEY(name); <span class="comment">/* 对name列增加UNIQUE约束条件 */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> student MODIFY age <span class="type">SMALLINT</span>; <span class="comment">/* 改变age列为SMALLINT型 */</span></span><br></pre></td></tr></table></figure>
+<p>可以看到entrance列可以选择日期<br><img src="/src/mysql学习笔记/2/3.png" width=70%><br>而且name列不允许重复<br><img src="/src/mysql学习笔记/2/4.png" width=70%></p>
+<h2 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h2><h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 删除数据表student */</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> student;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/15/mysql/mysql-Notes_3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql/mysql-Notes_2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/13/mysql/mysql-Notes_2/">mysql学习笔记_2 - 数据表的基本操作</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/13/mysql/mysql-Notes_2/" class="archive-article-date">
+  	<time datetime="2020-04-13T00:21:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数据表的基本操作"><a href="#数据表的基本操作" class="headerlink" title="数据表的基本操作"></a>数据表的基本操作</h1><h2 id="定义基本表"><a href="#定义基本表" class="headerlink" title="定义基本表"></a>定义基本表</h2><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span>(</span><br><span class="line">    <span class="operator">&lt;</span>列名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>[<span class="operator">&lt;</span>列级完整性约束条件<span class="operator">&gt;</span>]</span><br><span class="line">    [, <span class="operator">&lt;</span>列名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>[<span class="operator">&lt;</span>列级完整性约束条件<span class="operator">&gt;</span>]]...</span><br><span class="line">    [, <span class="operator">&lt;</span>表级完整性约束条件<span class="operator">&gt;</span>]);</span><br></pre></td></tr></table></figure>
+<h4 id="例1"><a href="#例1" class="headerlink" title="例1"></a>例1</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> student(</span><br><span class="line">    id <span class="type">VARCHAR</span>(<span class="number">11</span>) <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>, <span class="comment">/* id是主码，列级完整性约束 */</span></span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>, <span class="comment">/* name非空 */</span></span><br><span class="line">    age <span class="type">INT</span> <span class="comment">/* age是整型 */</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h4 id="例2"><a href="#例2" class="headerlink" title="例2"></a>例2</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> student(</span><br><span class="line">    id <span class="type">INT</span> <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> AUTO_INCREMENT, <span class="comment">/* id是主码，自增 */</span></span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">UNIQUE</span>, <span class="comment">/* name非空，且取值唯一 */</span></span><br><span class="line">    age <span class="type">SMALLINT</span> <span class="comment">/* 比INT取值范围小 */</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<img src="/src/mysql学习笔记/2/1.png" width=70%>
+
+<h4 id="例3"><a href="#例3" class="headerlink" title="例3"></a>例3</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 也可以将PRIMARY KEY写到表级约束的位置 */</span></span><br><span class="line"><span class="comment">/* 课程 表 */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> course(</span><br><span class="line">    id <span class="type">VARCHAR</span>(<span class="number">12</span>), <span class="comment">/* 课程号 */</span></span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">UNIQUE</span>,</span><br><span class="line">    pid <span class="type">VARCHAR</span>(<span class="number">12</span>), <span class="comment">/* 先修课 */</span></span><br><span class="line">    credit <span class="type">SMALLINT</span>,</span><br><span class="line">    <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>(id),</span><br><span class="line">    <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span>(pid) <span class="keyword">REFERENCES</span> course(id) <span class="comment">/* pid是外码，被参照表是course，被参照列是id */</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>如果外码pid的取值不是id列中的值<br><img src="/src/mysql学习笔记/2/2.png" width=90%></p>
+<h2 id="修改基本表"><a href="#修改基本表" class="headerlink" title="修改基本表"></a>修改基本表</h2><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span></span><br><span class="line">    [<span class="keyword">ADD</span> <span class="operator">&lt;</span>新列名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>[完整性约束]]</span><br><span class="line">    [MODIFY <span class="operator">&lt;</span>字段名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>]</span><br><span class="line">    [<span class="keyword">CONSTRAINT</span> <span class="operator">&lt;</span>约束条件<span class="operator">&gt;</span>(<span class="operator">&lt;</span>列名<span class="operator">&gt;</span>)]</span><br></pre></td></tr></table></figure>
+<h4 id="例1-1"><a href="#例1-1" class="headerlink" title="例1"></a>例1</h4><p>以 <a href="####%E4%BE%8B1">定义基本表 - 例1</a> 为例</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> student <span class="keyword">ADD</span> entrance <span class="type">DATE</span>; <span class="comment">/* 增加 “入学时间” 列，类型为DATE */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> student <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> <span class="keyword">UNIQUE</span> KEY(name); <span class="comment">/* 对name列增加UNIQUE约束条件 */</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> student MODIFY age <span class="type">SMALLINT</span>; <span class="comment">/* 改变age列为SMALLINT型 */</span></span><br></pre></td></tr></table></figure>
+<p>可以看到entrance列可以选择日期<br><img src="/src/mysql学习笔记/2/3.png" width=70%><br>而且name列不允许重复<br><img src="/src/mysql学习笔记/2/4.png" width=70%></p>
+<h2 id="删除基本表"><a href="#删除基本表" class="headerlink" title="删除基本表"></a>删除基本表</h2><h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 删除数据表student */</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> student;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mysql学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/13/mysql/mysql-Notes_2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-mysql/mysql-Notes_1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1536,491 +1706,9 @@ testtable是我的表名，改成自己的再重新导入即可。
 
 
   
-    <article id="post-EnglishRepository/words_33" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/25/EnglishRepository/words_33/">words_33</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/25/EnglishRepository/words_33/" class="archive-article-date">
-  	<time datetime="2020-03-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <style>
-    h {
-        color: #539fff;
-        font-size: 18px;
-    }
-    n {
-        color: #aaaaaa;
-        font-style: oblique;
-    }
-    w {
-      color: #35c1f0;
-    }
-</style>
-
-<h1 id="百词斩-雅思-2020-03-25"><a href="#百词斩-雅思-2020-03-25" class="headerlink" title="百词斩 雅思 2020/03/25"></a>百词斩 雅思 2020/03/25</h1><p><em>total 13 words 1 similar</em></p>
-<p><h>preliminary</h></p>
-<ul>
-<li><n>a.</n> 初步的，预备的；</li>
-<li>happening before a more important action or event</li>
-<li><n>exp.</n> The preliminary drawings of the building are already finished.</li>
-<li><n>n.</n> 预赛；预考，初始；初步措施</li>
-</ul>
-<hr>
-<p><h>composite</h></p>
-<ul>
-<li><n>a.</n> 合成的，复合的；</li>
-<li>made of different parts or materials</li>
-<li><n>exp.</n> She made a composite photo of herself at the beach.</li>
-<li><n>n.</n> 合成物，复合材料</li>
-</ul>
-<hr>
-<p><h>arrogant</h></p>
-<ul>
-<li><n>a.</n> 傲慢的，妄自尊大的</li>
-<li>behaving in a proud, unpleasant way, showing little thought for other people</li>
-<li><n>exp.</n> The arrogant man refused to listen to anyone else’s ideas.</li>
-</ul>
-<hr>
-<p><h>stimulus</h></p>
-<ul>
-<li><n>n.</n> 鼓励；促进因素</li>
-<li>something that helps somebody / something to develop better or more quickly</li>
-<li><n>exp.</n> A big red flower means a stimulus to her.</li>
-</ul>
-<hr>
-<p><h>surge</h></p>
-<ul>
-<li><n>v.</n> 波浪般汹涌奔腾；激增；</li>
-<li>to move very quickly and suddenly in a particular direction</li>
-<li><n>exp.</n> The water surges over the road.</li>
-<li><n>n.</n> 波涛汹涌</li>
-<li><n>similar.</n> <w>surgeon</w><ul>
-<li><n>n.</n> 外科医生</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p><h>discrete</h></p>
-<ul>
-<li><n>a.</n> 分开的；不连续的</li>
-<li>independent of other things of the same type</li>
-<li><n>exp.</n> The abacus is made up of discrete units.<br>算盘是由分开的单元组成的。</li>
-</ul>
-<hr>
-<p><h>elastic</h></p>
-<ul>
-<li><n>a.</n> 可伸缩的，(系统或计划) 灵活的；</li>
-<li>that can change or be changed</li>
-<li><n>exp.</n> The spring is very elastic thing that can stretch far.</li>
-<li><n>n.</n> 松紧带，橡皮圈</li>
-</ul>
-<hr>
-<p><h>obscene</h></p>
-<ul>
-<li><n>a.</n> 下流的，淫秽的</li>
-<li><n>exp.</n> The male monkey makes obscene display of his red buttock to attract the female.</li>
-</ul>
-<hr>
-<p><h>illiterate</h></p>
-<ul>
-<li><n>n.</n> 文盲，目不识丁者；</li>
-<li>(of a person) not knowing how to read or write</li>
-<li><n>exp.</n> Illiterates cannot read.</li>
-<li><n>a.</n> 缺乏 (某方面) 知识的</li>
-</ul>
-<hr>
-<p><h>set off</h></p>
-<ul>
-<li><n>phr.</n> 出发</li>
-<li>to begin a journey</li>
-<li><n>exp.</n> The pirates set of from the island.</li>
-</ul>
-<hr>
-<p><h>loom</h></p>
-<ul>
-<li><n>n.</n> 织布机；</li>
-<li>a machine for making cloth by twisting threads betwween other threads which go in a different direction</li>
-<li><n>exp.</n> The girl is operating the loom to weave the cloth.</li>
-<li><n>v.</n> 阴森地逼近；隐现；即将来临</li>
-</ul>
-<hr>
-<p><h>stitch</h></p>
-<ul>
-<li><n>v.</n> 缝，绣；</li>
-<li>to use a needle and thread to repair, join, or decorate pieces of cloth; to sew the edges of a wound together</li>
-<li><n>exp.</n> The cobbler is stitching a part of the shoe using the sewing machine.<br>鞋匠用缝纫机来缝合鞋的部件。</li>
-</ul>
-<hr>
-<p><h>restrain</h></p>
-<ul>
-<li><n>v.</n> 抑制 (愤怒等)，控制</li>
-<li>to stop somebody / something from doing something, especially by using physical force; to stop yourself from feeling an emotion or doing something that you would like to do</li>
-<li><n>exp.</n> I must restrain my anger because he is the boss.</li>
-</ul>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">EnglishRepositoryOfWords</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/25/EnglishRepository/words_33/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-EnglishRepository/words_32" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/24/EnglishRepository/words_32/">words_32</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/24/EnglishRepository/words_32/" class="archive-article-date">
-  	<time datetime="2020-03-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <style>
-    h {
-        color: #539fff;
-        font-size: 18px;
-    }
-    n {
-        color: #aaaaaa;
-        font-style: oblique;
-    }
-    w {
-      color: #35c1f0;
-    }
-</style>
-
-<h1 id="百词斩-雅思-2020-03-24"><a href="#百词斩-雅思-2020-03-24" class="headerlink" title="百词斩 雅思 2020/03/24"></a>百词斩 雅思 2020/03/24</h1><p><em>total 28 words</em></p>
-<p><h>feasible</h></p>
-<ul>
-<li><n>a.</n> 可行的，行得通的</li>
-<li>that is possible and likely to be achieved</li>
-<li><n>exp.</n> I think your construction plan is feasible. Let’s start to build the house!</li>
-</ul>
-<hr>
-<p><h>convert</h></p>
-<ul>
-<li><n>v.</n> 可转变为，可变换成；改变，转变，转化；使改变信仰</li>
-<li>to be able to be changed from one form, purpose or system to another</li>
-<li><n>exp.</n> Cool! The sofa can be easily converted into a bed.</li>
-</ul>
-<hr>
-<p><h>martyr</h></p>
-<ul>
-<li><n>n.</n> 烈士；</li>
-<li>a person who suffers very much or is killed because of their religious or political beliefs</li>
-<li><n>exp.</n> He died in the line of duty and was dubbed a martyr.</li>
-<li><n>v.</n> 迫害，折磨</li>
-</ul>
-<hr>
-<p><h>tentative</h></p>
-<ul>
-<li><n>a.</n> 试探性的；不确定的；暂时的；犹豫不决的</li>
-<li>not behaving or done with confidence</li>
-<li><n>exp.</n> When walking in darkness, every step you take is tentative.</li>
-</ul>
-<hr>
-<p><h>condolence</h></p>
-<ul>
-<li><n>n.</n> 哀悼；吊唁</li>
-<li>sympathy that you feel for somebody when a person in their family or that they know well has died; an expression of this sympathy</li>
-<li><n>exp.</n> People lit candles to show their condolence for the earthquake victims.</li>
-</ul>
-<hr>
-<p><h>wholesale</h></p>
-<ul>
-<li><n>n.</n> 批发；</li>
-<li>in large quantities, especially so they can be sold again to make a profit</li>
-<li><n>exp.</n> Retailers buy things in wholesale.</li>
-<li><n>a.</n> 大规模的；批发的</li>
-</ul>
-<hr>
-<p><h>whilst</h></p>
-<ul>
-<li><n>conj.</n> 当···的时候；</li>
-<li>at the same time as something else is happening; during the time that something is happening</li>
-<li><n>exp.</n> They were at their happiest whilst playing soccer.</li>
-<li><n>n.</n> 一会儿；一段时间</li>
-</ul>
-<hr>
-<p><h>scandal</h></p>
-<ul>
-<li><n>n.</n> 丑闻；丢脸；流言蜚语；反感；愤慨</li>
-<li>behavior or an event that people think is morally or legally wrong and causes public feelings of shock or anger</li>
-<li><n>exp.</n> Mr. Giraffe was involved in the academic scandal and received widespread media coverage.</li>
-</ul>
-<hr>
-<p><h>sphere</h></p>
-<ul>
-<li><n>n.</n> 球；领域</li>
-<li>any object that is completely round, for example a ball</li>
-<li><n>exp.</n> The world is not flat; it it a sphere.</li>
-</ul>
-<hr>
-<p><h>commodity</h></p>
-<ul>
-<li><n>n.</n> 商品，货物</li>
-<li>a product or a raw material that can be bought and sold; a thing that is useful or has a useful quality</li>
-<li><n>exp.</n> You can find many commodities in supermarkets.</li>
-</ul>
-<hr>
-<p><h>attain</h></p>
-<ul>
-<li><n>v.</n> 获得；达到 (某个年纪、水平、条件) ；实现；</li>
-<li>to succeed in getting something, usually after a lot of effort</li>
-<li><n>exp.</n> I finally attained my driving license!</li>
-<li><n>n.</n> 成就</li>
-</ul>
-<hr>
-<p><h>definitive</h></p>
-<ul>
-<li><n>a.</n> 可靠的，明确的，权威的</li>
-<li>considered to be the best of its kind and almost impossible to improve</li>
-<li><n>exp.</n> The new law is definitive; we now know exactly what it means.</li>
-</ul>
-<hr>
-<p><h>incidence</h></p>
-<ul>
-<li><n>n.</n> 发生率，入射角度</li>
-<li>the extent to which something happens or has an effect</li>
-<li><n>exp.</n> The incidence of heart disease goes up as people get older.</li>
-</ul>
-<hr>
-<p><h>verdict</h></p>
-<ul>
-<li><n>n.</n> (陪审团) 裁决</li>
-<li>a decision that is made by a jury in court, stating if somebody is considered guilty of a crime or not</li>
-<li><n>exp.</n> The judge is making his final verdict.</li>
-</ul>
-<hr>
-<p><h>notion</h></p>
-<ul>
-<li><n>n.</n> 观点，看法；概念，观念；突然的念头；意图</li>
-<li>an idea, a belief or an understanding of something</li>
-<li><n>exp.</n> Many Chinese have the notion that all French men are romantic.</li>
-</ul>
-<hr>
-<p><h>voucher</h></p>
-<ul>
-<li><n>n.</n> 代金券；教育补助金券；</li>
-<li>a printed piece of paper that can be used instead of money to pay for something, or that allows you to pay less than the usual price of something</li>
-<li><n>exp.</n> I won a voucher worth $5000, but only for purchasing the private jet.</li>
-<li><n>vt.</n> 证实···的可靠性</li>
-</ul>
-<hr>
-<p><h>piston</h></p>
-<ul>
-<li><n>n.</n> 活塞，瓣</li>
-<li>a part of an engine that consists of a short cylinder that fits inside a tube and moves up and down or backwards and forwards to make other parts of the engine move</li>
-<li><n>exp.</n> He is standing in a garage with a piston in his hands.</li>
-</ul>
-<hr>
-<p><h>sophisticated</h></p>
-<ul>
-<li><n>a.</n> (仪器) 精密的，复杂的；老于世故的，老练的，富有经验的；高雅的，精致的</li>
-<li>Someone is comfortable in social situations and knows about culture, fashion, and other matters that are considered socially important.</li>
-<li><n>exp.</n> This machine is quite sophisticated.</li>
-</ul>
-<hr>
-<p><h>provoke</h></p>
-<ul>
-<li><n>v.</n> 激怒；对···挑衅</li>
-<li>to say or do something that you know will annoy somebody so that they react in an angry way</li>
-<li><n>exp.</n> The basketball player’s dirty behavior really provoked his opponent.</li>
-</ul>
-<hr>
-<p><h>commence</h></p>
-<ul>
-<li><n>v.</n> 开始</li>
-<li>to begin to happen; to begin something</li>
-<li><n>exp.</n> We were about to commence the race.</li>
-</ul>
-<hr>
-<p><h>intimate</h></p>
-<ul>
-<li><n>a.</n> 亲密的，密切的；详细的；</li>
-<li>(of knowledge) very detailed and thorough</li>
-<li><n>exp.</n> Nothing is sweeter than intimate lovers.</li>
-<li><n>v.</n> 宣布，通知；</li>
-<li><n>n.</n> 密友，知己</li>
-</ul>
-<hr>
-<p><h>reproach</h></p>
-<ul>
-<li><n>v.</n> 责备，指责；</li>
-<li>to blame or criticize somebody for something that they have done or not done, because you are disappointed in them; to feel guilty about something that you think you should have done in a different way</li>
-<li><n>exp.</n> The master reproached the dog for destroying the sofa.</li>
-<li><n>n.</n> 指责</li>
-</ul>
-<hr>
-<p><h>reconcile</h></p>
-<ul>
-<li><n>v.</n> 和解；调解；调和</li>
-<li>one find an acceptable way of dealing with two or more ideas, needs, etc. that seem to be opposed to each other; to make people become friends again after an argument or a disagreement</li>
-<li><n>exp.</n> They are desperate to reconcile and fix their broken hearts.</li>
-</ul>
-<hr>
-<p><h>implement</h></p>
-<ul>
-<li><n>n.</n> 工具；器具；</li>
-<li>a tool or an instrument, often one that is quite simple and that is used outdoors</li>
-<li><n>exp.</n> I use these implements to take care of my garden.</li>
-<li><n>v.</n> 实施，执行</li>
-</ul>
-<hr>
-<p><h>impart</h></p>
-<ul>
-<li><n>v.</n> 传授，给予，将 (某性质) 给予或赋予某事物</li>
-<li>to pass information, knowledge, etc. to other people; to give a particular quality to something</li>
-<li><n>exp.</n> A teacher’s duty is to impart knowledge to students.</li>
-</ul>
-<hr>
-<p><h>buffet</h></p>
-<ul>
-<li><n>n.</n> 自助餐，(火车内) 餐室，冷餐桌；</li>
-<li>a meal at which people serve themselves from a table and then stand or sit somewhere else to eat</li>
-<li><n>exp.</n> You can eat as much as you like at the buffet.</li>
-<li><n>v.</n> 反复敲打，打击，重击</li>
-</ul>
-<hr>
-<p><h>outset</h></p>
-<ul>
-<li><n>n.</n> 开始，开端</li>
-<li>the start or beginning of something</li>
-<li><n>exp.</n> You need to be well prepared from the outset.</li>
-</ul>
-<hr>
-<p><h>engrave</h></p>
-<ul>
-<li><n>v.</n> 雕刻</li>
-<li>to cut words or designs on wood, stone, metal, etc.</li>
-<li><n>exp.</n> The artist is engraving patterns into the wood.</li>
-</ul>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">EnglishRepositoryOfWords</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/24/EnglishRepository/words_32/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -2156,6 +1844,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CPU</a>
               </li>
             
             <div class="clearfix"></div>
