@@ -154,6 +154,241 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-OS/OS-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/07/OS/OS-2/">OS_2 - 计算机体系结构及内存分层体系</a>
+    </h1>
+  
+
+        
+        <a href="/2021/02/07/OS/OS-2/" class="archive-article-date">
+  	<time datetime="2021-02-07T02:50:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="计算机体系结构及内存分层体系"><a href="#计算机体系结构及内存分层体系" class="headerlink" title="计算机体系结构及内存分层体系"></a>计算机体系结构及内存分层体系</h2><h3 id="计算机体系结构-内存分层体系"><a href="#计算机体系结构-内存分层体系" class="headerlink" title="计算机体系结构/内存分层体系"></a>计算机体系结构/内存分层体系</h3><h4 id="计算机体系结构"><a href="#计算机体系结构" class="headerlink" title="计算机体系结构"></a>计算机体系结构</h4><p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210207105534779.png" alt="image-20210207105534779"></p>
+<h4 id="内存分层体系"><a href="#内存分层体系" class="headerlink" title="内存分层体系"></a>内存分层体系</h4><p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210207105856225.png" alt="image-20210207105856225"></p>
+<h4 id="在操作系统的内存管理范例"><a href="#在操作系统的内存管理范例" class="headerlink" title="在操作系统的内存管理范例"></a>在操作系统的内存管理范例</h4><p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210207110146276.png" alt="image-20210207110146276"></p>
+<p>在操作系统中管理内存的不同方法</p>
+<ul>
+<li>程序重定位</li>
+<li>分段</li>
+<li>分页</li>
+<li>虚拟内存</li>
+<li>按需分页虚拟内存</li>
+</ul>
+<p>实现高度依赖于硬件</p>
+<ul>
+<li>必须知道内存架构</li>
+<li>MMU（内存管理单元）：硬件组件负责处理CPU的内存访问请求</li>
+</ul>
+<h3 id="地址空间-amp-地址生成"><a href="#地址空间-amp-地址生成" class="headerlink" title="地址空间&amp;地址生成"></a>地址空间&amp;地址生成</h3><h3 id="连续内存分配"><a href="#连续内存分配" class="headerlink" title="连续内存分配"></a>连续内存分配</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/02/07/OS/OS-2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-OS/OS-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/07/OS/OS-1/">OS_1 - 启动</a>
+    </h1>
+  
+
+        
+        <a href="/2021/02/07/OS/OS-1/" class="archive-article-date">
+  	<time datetime="2021-02-07T01:30:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><h3 id="启动-1"><a href="#启动-1" class="headerlink" title="启动"></a>启动</h3><h4 id="计算机体系结构概述"><a href="#计算机体系结构概述" class="headerlink" title="计算机体系结构概述"></a>计算机体系结构概述</h4><p>DISK：存放OS</p>
+<p>BIOS：基本I/O处理系统（检查外设等）</p>
+<p>Bootloader：加载OS，一般放在硬盘的第一个主引导扇区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">POST（加电自检）</span><br><span class="line">寻找显卡和执行BIOS</span><br></pre></td></tr></table></figure>
+<h4 id="计算机内存和硬盘布局"><a href="#计算机内存和硬盘布局" class="headerlink" title="计算机内存和硬盘布局"></a>计算机内存和硬盘布局</h4><h4 id="开机顺序"><a href="#开机顺序" class="headerlink" title="开机顺序"></a>开机顺序</h4><p>BIOS加载Bootloader，Bootloader加载操作系统</p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210207094608038.png" alt="操作系统的启动"></p>
+<h3 id="中断、异常和系统调用"><a href="#中断、异常和系统调用" class="headerlink" title="中断、异常和系统调用"></a>中断、异常和系统调用</h3><p><em>interrupt、exception、system call</em></p>
+<h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><h4 id="中断、异常和系统调用相比较"><a href="#中断、异常和系统调用相比较" class="headerlink" title="中断、异常和系统调用相比较"></a>中断、异常和系统调用相比较</h4><ul>
+<li><p>中断（来源于外设）</p>
+<ul>
+<li>来自不同的硬件设备的计时器和网络的中断</li>
+</ul>
+</li>
+<li><p>异常（来源于不良的应用程序）</p>
+<ul>
+<li>非法指令或者其他坏的处理状态（如：内存出错）</li>
+</ul>
+</li>
+<li><p>系统调用（来源于应用程序）</p>
+<ul>
+<li>应用程序主动向操作系统发出服务请求（读写文件、发送网络包等）</li>
+</ul>
+</li>
+</ul>
+<p>处理时间</p>
+<ul>
+<li>中断：异步</li>
+<li>异常：同步</li>
+<li>系统调用：异步或同步</li>
+</ul>
+<p>相应</p>
+<ul>
+<li>中断：持续，对用户应用程序是透明的</li>
+<li>异常：杀死或者重新执行意想不到的应用程序指令</li>
+<li>系统调用：等待和持续</li>
+</ul>
+<h4 id="中断和异常处理机制"><a href="#中断和异常处理机制" class="headerlink" title="中断和异常处理机制"></a>中断和异常处理机制</h4><p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210207101000696.png" alt="image-20210207101000696"></p>
+<h6 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h6><p><strong>硬件</strong></p>
+<ul>
+<li>设置中断标记[CPU初始化]（CPU看到中断标记后把中断号发给操作系统进行相应处理）<ol>
+<li>将内部、外部事件设置中断标记</li>
+<li>中断时间的ID</li>
+</ol>
+</li>
+</ul>
+<p><strong>软件</strong></p>
+<ul>
+<li>保存当前处理状态</li>
+<li>中断服务程序处理（比如网络中断，处理数据包）</li>
+<li>清除中断标记</li>
+<li>恢复之前保存的处理状态</li>
+</ul>
+<hr>
+<h6 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h6><p>产生异常编号</p>
+<ul>
+<li>保存现场</li>
+<li>异常处理<ul>
+<li>杀死产生了异常的程序</li>
+<li>或重新执行异常指令（OS进行弥补修复工作，再恢复现场并重新执行指令，这个过程对应用程序也是透明的）</li>
+</ul>
+</li>
+<li>恢复现场</li>
+</ul>
+<h4 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h4><p>程序访问主要是通过高层次的API接口而不是直接进行系统调用</p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210207102133897.png" alt="image-20210207102133897"></p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210207103534855.png" alt="image-20210207103534855"></p>
+<p>用户态：CPU特权低，不能直接访问一些特殊的指令，不能直接访问I/O</p>
+<p>内核态：完全控制整个计算机系统</p>
+<p>当应用程序调用系统调用时，会完成从用户态到内核态的转换，从而使得<strong>控制权从用户程序到操作系统</strong>手上，操作系统根据系统调用ID号完成具体的服务</p>
+<h4 id="程序调用与系统调用的不同之处"><a href="#程序调用与系统调用的不同之处" class="headerlink" title="程序调用与系统调用的不同之处"></a>程序调用与系统调用的不同之处</h4><p>应用程序发出函数调用：<strong>一个栈空间</strong>完成参数传递和参数返回</p>
+<p>系统调用：应用程序和内核有<strong>各自的堆栈</strong>，除了特权级的转换，还需要切换堆栈</p>
+<h4 id="开销"><a href="#开销" class="headerlink" title="开销"></a>开销</h4><p>特权级的转换和切换堆栈都会带来开销，系统调用的开销比应用程序函数调用的开销大很多，但是也确保了操作系统<strong>安全可靠</strong>地运行</p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210207104807028.png" alt="image-20210207104807028"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/02/07/OS/OS-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Verilog/CPU/ori指令说明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -977,164 +1212,6 @@
 
 
   
-    <article id="post-Tutorials/电脑小白如何下载安装常用软件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/13/Tutorials/%E7%94%B5%E8%84%91%E5%B0%8F%E7%99%BD%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/">电脑小白如何下载安装常用软件</a>
-    </h1>
-  
-
-        
-        <a href="/2021/01/13/Tutorials/%E7%94%B5%E8%84%91%E5%B0%8F%E7%99%BD%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2021-01-13T09:42:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>I don’t know where to start. But someone will need this tutorial. Let’s go straight to the point.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tutorials</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/13/Tutorials/%E7%94%B5%E8%84%91%E5%B0%8F%E7%99%BD%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Web/Ajax" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/23/Web/Ajax/">Ajax-Notes-1</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/23/Web/Ajax/" class="archive-article-date">
-  	<time datetime="2020-05-23T14:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用jQuery需要导入jQuery，使用Vue导入Vue，两个都不用可以自己原生态实现</p>
-<h1 id="三部曲"><a href="#三部曲" class="headerlink" title="三部曲"></a>三部曲</h1><ol>
-<li>编写对应处理的Controller，返回消息或者字符串或者json格式的数据；</li>
-<li>编写ajax请求<ol>
-<li>url: Controller请求</li>
-<li>data: 键值对</li>
-<li>success: 回调函数</li>
-</ol>
-</li>
-<li>给Ajax绑定事件，点击事件、失去焦点onblur、键盘弹起keyup</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/23/Web/Ajax/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1277,6 +1354,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CPU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
               </li>
             
             <div class="clearfix"></div>
