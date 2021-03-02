@@ -154,6 +154,122 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Android/AndroidNotes-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/02/Android/AndroidNotes-1/">安卓学习笔记-1</a>
+    </h1>
+  
+
+        
+        <a href="/2021/03/02/Android/AndroidNotes-1/" class="archive-article-date">
+  	<time datetime="2021-03-02T02:23:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第一节"><a href="#第一节" class="headerlink" title="第一节"></a>第一节</h2><blockquote>
+<p>官方文档（开发者指南）：<a target="_blank" rel="noopener" href="https://developer.android.google.cn/guide">https://developer.android.google.cn/guide</a></p>
+</blockquote>
+<p>安卓工资在北京这么高？只有9.2%在10K以下</p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210302102522682.png" alt="image-20210302102522682"></p>
+<p>众所周知，安卓占有率确实在逐年提高</p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210302102620859.png" alt="image-20210302102620859"></p>
+<p>（自己乱写的）闹钟请求通知权限调用通知管理器调用多媒体框架调用linux内核通过音频驱动发出声音</p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210302102804900.png" alt="image-20210302102804900"></p>
+<h3 id="Dalvik虚拟机"><a href="#Dalvik虚拟机" class="headerlink" title="Dalvik虚拟机"></a>Dalvik虚拟机</h3><p>简单地说就是类似Java虚拟机</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ymczxy/p/4711205.html">https://www.cnblogs.com/ymczxy/p/4711205.html</a></p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210302104111307.png" alt="image-20210302104111307"></p>
+<p><img src="http://1833.img.pp.sohu.com.cn/images/blog/2010/6/13/10/11/129e259a729g213.jpg" alt="Dalvik虚拟机"></p>
+<p><strong>java虚拟机和Dalvik虚拟机的区别</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/carlo/p/4947763.html">https://www.cnblogs.com/carlo/p/4947763.html</a></p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210302105509111.png" alt="image-20210302105509111"></p>
+<h3 id="Android程序结构"><a href="#Android程序结构" class="headerlink" title="Android程序结构"></a>Android程序结构</h3><h4 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h4><p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210302110023020.png" alt="image-20210302110023020"></p>
+<h4 id="图片资源"><a href="#图片资源" class="headerlink" title="图片资源"></a>图片资源</h4><p>调用图片资源的方法</p>
+<ul>
+<li><p>Java代码调用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用mipmap文件夹中资源文件</span></span><br><span class="line">getResources().getDrawable(R.mipmap.ic_launcher);</span><br><span class="line"><span class="comment">// 调用以drawable开头的文件夹中的资源文件</span></span><br><span class="line">getResources().getDrawable(R.drawable.icon);</span><br></pre></td></tr></table></figure></li>
+<li><p>XML布局文件中调用</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@mipmap/ic_launcher <span class="comment">&lt;!-- 调用mipmap文件夹中的资源文件 --&gt;</span></span><br><span class="line">@drawable/icon <span class="comment">&lt;!-- 调用以drawable开头的文件夹中的资源文件 --&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210302110108657.png" alt="image-20210302110108657"></p>
+</li>
+</ul>
+<h4 id="主题和样式资源"><a href="#主题和样式资源" class="headerlink" title="主题和样式资源"></a>主题和样式资源</h4><p>官方文档：<a target="_blank" rel="noopener" href="https://developer.android.google.cn/guide/topics/resources/style-resource">https://developer.android.google.cn/guide/topics/resources/style-resource</a></p>
+<p>基础样式（留着复制）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Base application theme. --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;AppTheme&quot;</span> <span class="attr">parent</span>=<span class="string">&quot;Theme.AppCompat.Light.DarkActionBar&quot;</span>&gt;</span></span><br><span class="line"><span class="xml">        <span class="comment">&lt;!-- Customize your theme here. --&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;colorPrimary&quot;</span>&gt;</span>@color/colorPrimary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;colorPrimaryDark&quot;</span>&gt;</span>@color/colorPrimaryDark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;colorAccent&quot;</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210302112116509.png" alt="image-20210302112116509"></p>
+<p>设置方式</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/aaa55baf6121">https://www.jianshu.com/p/aaa55baf6121</a></p>
+<ul>
+<li><p>全局设置</p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210302113155451.png" alt="image-20210302113155451"></p>
+</li>
+<li><p>为Activity单独设置</p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210302113530381.png" alt="image-20210302113530381"></p>
+</li>
+<li><p>Java代码设置</p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210302113751049.png" alt="image-20210302113751049"></p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安卓</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/02/Android/AndroidNotes-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-SoftwareProjectManagement/SoftwareProjectManagement-Notes-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1319,84 +1435,6 @@
 
 
   
-    <article id="post-Math/杂" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/16/Math/%E6%9D%82/">杂</a>
-    </h1>
-  
-
-        
-        <a href="/2021/01/16/Math/%E6%9D%82/" class="archive-article-date">
-  	<time datetime="2021-01-16T13:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="求导"><a href="#求导" class="headerlink" title="求导"></a>求导</h2><ul>
-<li><p>$$<br>(u_1u_2u_3)\prime = u_1{\prime}u_2u_3 + u_1u_2{\prime}u_3 + u_1u_2{\prime}u_3<br>$$</p>
-</li>
-<li></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Math</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/16/Math/%E6%9D%82/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1547,6 +1585,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">软件项目管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
               </li>
             
             <div class="clearfix"></div>
