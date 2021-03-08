@@ -184,6 +184,168 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/01/30/Verilog/CPU/ori%E6%8C%87%E4%BB%A4%E8%AF%B4%E6%98%8E/">ori指令说明</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/01/30/Verilog/CPU/ori%E6%8C%87%E4%BB%A4%E8%AF%B4%E6%98%8E/">
+          
+          
+            
+          
+          ori指令说明ori是进行逻辑“或”运算的指令指令码 6’b001101
+指令格式
+
+
+31   ~   26
+25 ~ 21
+20 ~ 16
+15   ~    0
+
+
+
+ORI 001101
+rs
+rt
+immediate
+
+
+指令用法ori rs, rt, immediate
+指令作用将指令中的16位立即数immediate进行无符号拓展至32位，然后与索引位rs的通用寄存器的值进行逻辑“或
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-01-30 12:03" pubdate>
+              2021-01-30
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/CPU/">CPU</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/01/29/Verilog/CPU/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E5%8F%8A%E6%A8%A1%E5%9D%97%E6%8F%8F%E8%BF%B0/">代码风格及模块描述</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/01/29/Verilog/CPU/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E5%8F%8A%E6%A8%A1%E5%9D%97%E6%8F%8F%E8%BF%B0/">
+          
+          
+            
+          
+          代码风格变量及端口定义12345e; // enable使能w; // write写入r; // read读取addr; // address地址reg; // 寄存器
+12345rst; // reset复位clk; // clock时钟waddr; // write address写入地址wdata; // wirte data写入数据we; // write enable写入使能信号
+
+Re
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-01-29 22:13" pubdate>
+              2021-01-29
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/CPU/">CPU</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/01/29/Python/conda%E4%BD%BF%E7%94%A8/">conda使用</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/01/29/Python/conda%E4%BD%BF%E7%94%A8/">
+          
+          
+            
+          
+          conda常用命令Windows环境管理
+创建一个名为myenv的环境，python版本为3.8.x（3.8的最新版）
+
+1conda create --name myenv python=3.8
+
+
+激活myenv环境，可以看到环境已经切换到myenv
+
+1conda activate myenv
+
+
+返回默认环境
+
+1conda deactivate myenv
+
+
+删除环境
+
+1conda 
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-01-29 12:01" pubdate>
+              2021-01-29
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Python/">Python</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/01/26/Web/Web%E7%9F%A5%E8%AF%86%E6%9D%82%E7%83%A9/">Web知识杂烩</a>
       </h1>
 
@@ -527,150 +689,11 @@ success: 回调函数
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/04/15/mysql/mysql-Notes_3/">mysql学习笔记_3 - 定义_修改_删除数据表</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/04/15/mysql/mysql-Notes_3/">
-          
-          
-            
-          
-          数据表的基本操作定义数据表语法1234CREATE TABLE &lt;表名&gt;(    &lt;列名&gt; &lt;数据类型&gt;[&lt;列级完整性约束条件&gt;]    [, &lt;列名&gt; &lt;数据类型&gt;[&lt;列级完整性约束条件&gt;]]...    [, &lt;表级完整性约束条件&gt;]);
-例112345CREATE TABLE student(  
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-04-15 11:15" pubdate>
-              2020-04-15
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">mysql学习笔记</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/04/13/mysql/mysql-Notes_2/">mysql学习笔记_2 - 数据表的基本操作</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/04/13/mysql/mysql-Notes_2/">
-          
-          
-            
-          
-          数据表的基本操作定义基本表语法1234CREATE TABLE &lt;表名&gt;(    &lt;列名&gt; &lt;数据类型&gt;[&lt;列级完整性约束条件&gt;]    [, &lt;列名&gt; &lt;数据类型&gt;[&lt;列级完整性约束条件&gt;]]...    [, &lt;表级完整性约束条件&gt;]);
-例112345CREATE TABLE student(  
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-04-13 08:21" pubdate>
-              2020-04-13
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">mysql学习笔记</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/04/12/mysql/mysql-Notes_1/">mysql学习笔记_1 - 常用命令</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/04/12/mysql/mysql-Notes_1/">
-          
-          
-            
-          
-          Mysql数据库基本操作命令行进入数据库以root身份进入
-1mysql -u root -p
-
-
-显示所有数据库1show databases;
-
-
-创建数据库创建名为learn的数据库
-1create database learn;
-
-
-切换数据库切换到刚刚创建的数据库learn
-1use learn;
-查看数据库中的表查看数据库learn中的表
-12use learn;show tables
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-04-12 12:40" pubdate>
-              2020-04-12
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">mysql学习笔记</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#board">7</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#board">8</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
