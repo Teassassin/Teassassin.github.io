@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      369 字
+      838 字
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      11
        分钟
     </span>
   
@@ -230,7 +230,7 @@
             <h1 style="display: none">安卓学习笔记-1</h1>
             
             <div class="markdown-body">
-              <h2 id="第一节"><a href="#第一节" class="headerlink" title="第一节"></a>第一节</h2><blockquote>
+              <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><blockquote>
 <p>官方文档（开发者指南）：<a target="_blank" rel="noopener" href="https://developer.android.google.cn/guide">https://developer.android.google.cn/guide</a></p>
 </blockquote>
 <p>安卓工资在北京这么高？只有9.2%在10K以下</p>
@@ -250,15 +250,15 @@
 <h4 id="图片资源"><a href="#图片资源" class="headerlink" title="图片资源"></a>图片资源</h4><p>调用图片资源的方法</p>
 <ul>
 <li><p>Java代码调用</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用mipmap文件夹中资源文件</span></span><br><span class="line">getResources().getDrawable(R.mipmap.ic_launcher);</span><br><span class="line"><span class="comment">// 调用以drawable开头的文件夹中的资源文件</span></span><br><span class="line">getResources().getDrawable(R.drawable.icon);</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// 调用mipmap文件夹中资源文件</span><br>getResources().getDrawable(R.mipmap.ic_launcher);<br><span class="hljs-comment">// 调用以drawable开头的文件夹中的资源文件</span><br>getResources().getDrawable(R.drawable.icon);<br></code></pre></div></td></tr></table></figure></li>
 <li><p>XML布局文件中调用</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@mipmap/ic_launcher <span class="comment">&lt;!-- 调用mipmap文件夹中的资源文件 --&gt;</span></span><br><span class="line">@drawable/icon <span class="comment">&lt;!-- 调用以drawable开头的文件夹中的资源文件 --&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml">@mipmap/ic_launcher <span class="hljs-comment">&lt;!-- 调用mipmap文件夹中的资源文件 --&gt;</span><br>@drawable/icon <span class="hljs-comment">&lt;!-- 调用以drawable开头的文件夹中的资源文件 --&gt;</span><br></code></pre></div></td></tr></table></figure>
 <p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210302110108657.png" srcset="/img/loading.gif" alt="image-20210302110108657"></p>
 </li>
 </ul>
 <h4 id="主题和样式资源"><a href="#主题和样式资源" class="headerlink" title="主题和样式资源"></a>主题和样式资源</h4><p>官方文档：<a target="_blank" rel="noopener" href="https://developer.android.google.cn/guide/topics/resources/style-resource">https://developer.android.google.cn/guide/topics/resources/style-resource</a></p>
 <p>基础样式（留着复制）</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Base application theme. --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;AppTheme&quot;</span> <span class="attr">parent</span>=<span class="string">&quot;Theme.AppCompat.Light.DarkActionBar&quot;</span>&gt;</span></span><br><span class="line"><span class="xml">        <span class="comment">&lt;!-- Customize your theme here. --&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;colorPrimary&quot;</span>&gt;</span>@color/colorPrimary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;colorPrimaryDark&quot;</span>&gt;</span>@color/colorPrimaryDark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;colorAccent&quot;</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- Base application theme. --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;AppTheme&quot;</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">&quot;Theme.AppCompat.Light.DarkActionBar&quot;</span>&gt;</span><br><span class="xml">        <span class="hljs-comment">&lt;!-- Customize your theme here. --&gt;</span></span><br><span class="xml">        <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;colorPrimary&quot;</span>&gt;</span>@color/colorPrimary<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span></span><br><span class="xml">        <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;colorPrimaryDark&quot;</span>&gt;</span>@color/colorPrimaryDark<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span></span><br><span class="xml">        <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;colorAccent&quot;</span>&gt;</span>@color/colorAccent<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span></span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 <p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210302112116509.png" srcset="/img/loading.gif" alt="image-20210302112116509"></p>
 <p>设置方式</p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/aaa55baf6121">https://www.jianshu.com/p/aaa55baf6121</a></p>
@@ -273,6 +273,69 @@
 <p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210302113751049.png" srcset="/img/loading.gif" alt="image-20210302113751049"></p>
 </li>
 </ul>
+<h4 id="布局资源"><a href="#布局资源" class="headerlink" title="布局资源"></a>布局资源</h4><p>用于搭建程序的各个界面</p>
+<p>位置：res/layout</p>
+<p>调用方式：</p>
+<ul>
+<li><p>Java代码</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">//在Activity的onCreate()方法中调用activity_main.xml布局资源</span><br>setContentView(R.layout.activity_main);<br></code></pre></div></td></tr></table></figure></li>
+<li><p>XML布局文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--在XML布局文件中调用activity_main.xml布局资源--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">include</span> <span class="hljs-attr">layout</span>=<span class="hljs-string">&quot;@layout/activity_main&quot;</span>/&gt;</span><br></code></pre></div></td></tr></table></figure>
+<h4 id="字符串资源"><a href="#字符串资源" class="headerlink" title="字符串资源"></a>字符串资源</h4></li>
+</ul>
+<p>位置：res/values/strings.xml</p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210309110641113.png" srcset="/img/loading.gif" alt="image-20210309110641113"></p>
+<p>调用方式：</p>
+<ul>
+<li><p>Java代码</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// 在Activity的onCreate()方法中调用名为app_name的字符串资源</span><br>getResources().getString(R.string.app_name); <br></code></pre></div></td></tr></table></figure></li>
+<li><p>XML布局文件</p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210309110747782.png" srcset="/img/loading.gif" alt="image-20210309110747782"></p>
+</li>
+</ul>
+<h4 id="颜色资源"><a href="#颜色资源" class="headerlink" title="颜色资源"></a>颜色资源</h4><p>调用方式略</p>
+<p>定义颜色的形式：#透明度Alpha+RGB</p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210309111005968.png" srcset="/img/loading.gif" alt="image-20210309111005754"></p>
+<h4 id="尺寸资源"><a href="#尺寸资源" class="headerlink" title="尺寸资源"></a>尺寸资源</h4><p>例如view的宽高值</p>
+<p>位置：res/values/dimens.xml</p>
+<p>创建dimens.xml：右键单击values文件夹，选中【New】 -&gt; 【XML】 -&gt; 【Values XML File】，在弹出框中输入dimens</p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210309111341810.png" srcset="/img/loading.gif" alt="image-20210309111341810"></p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210309112704361.png" srcset="/img/loading.gif" alt="image-20210309112704361"></p>
+<p>调用方式略</p>
+<h3 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h3><p>对最小的<strong>功能模块</strong>进行测试</p>
+<p>分类：</p>
+<ul>
+<li><p>Android单元测试：连接Android设备</p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210315195214800.png" srcset="/img/loading.gif" alt="image-20210315195214800"></p>
+</li>
+<li><p>Junit单元测试：不依赖Android设备，在本地即可运行</p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210315195233035.png" srcset="/img/loading.gif" alt="image-20210315195233035"></p>
+</li>
+</ul>
+<h5 id="单元测试类"><a href="#单元测试类" class="headerlink" title="单元测试类"></a>单元测试类</h5><ul>
+<li><p>Android单元测试类<strong>ExampleInstrumentedTest</strong></p>
+<ul>
+<li>使用@RunWith(AndroidJUnit4.class)注解ExampleInstrumentedTest类</li>
+<li>@Test注解类中的方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@RunWith(AndroidJUnit4.class)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExampleInstrumentedTest</span> </span>&#123;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">useAppContext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">// Context of the app under test.</span><br>        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();<br>        assertEquals(<span class="hljs-string">&quot;com.example.myapplication&quot;</span>, appContext.getPackageName());<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
+<li><p>Junit单元测试类<strong>ExampleUnitTest</strong></p>
+<ul>
+<li>@Test注解类中的方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExampleUnitTest</span> </span>&#123;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addition_isCorrect</span><span class="hljs-params">()</span> </span>&#123;<br>        assertEquals(<span class="hljs-number">4</span>, <span class="hljs-number">2</span> + <span class="hljs-number">2</span>);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h5 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h5></li>
+</ul>
+<p><em>build.gradle，创建项目会自动添加</em></p>
+<figure class="highlight lasso"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lasso">dependencies &#123;<br><span class="hljs-params">...</span> <span class="hljs-params">...</span><br>    testImplementation <span class="hljs-string">&#x27;junit:junit:4.+&#x27;</span><br>    androidTestImplementation <span class="hljs-string">&#x27;androidx.test.ext:junit:1.1.1&#x27;</span><br>    androidTestImplementation <span class="hljs-string">&#x27;androidx.test.espresso:espresso-core:3.2.0&#x27;</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h4 id="LogCat"><a href="#LogCat" class="headerlink" title="LogCat"></a>LogCat</h4><p>Android中的命令行工具，获取程序日志信息</p>
+<p>输出的日志内容分为六个级别：</p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210315200034295.png" srcset="/img/loading.gif" alt="image-20210315200034295"></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">Log.v(<span class="hljs-string">&quot;我是打印信息的标签&quot;</span>, <span class="hljs-string">&quot;Verbose（需要打印的信息）&quot;</span>);<br>Log.d(<span class="hljs-string">&quot;MainActivity&quot;</span>,<span class="hljs-string">&quot;Degug&quot;</span>);<br>Log.i(<span class="hljs-string">&quot;MainActivity&quot;</span>,<span class="hljs-string">&quot;Info&quot;</span>);<br>Log.w(<span class="hljs-string">&quot;MainActivity&quot;</span>, <span class="hljs-string">&quot;Warning&quot;</span>);<br>Log.e(<span class="hljs-string">&quot;MainActivity&quot;</span>, <span class="hljs-string">&quot;Error&quot;</span>);<br>Log.wtf(<span class="hljs-string">&quot;MainActivity&quot;</span>,<span class="hljs-string">&quot;Assert&quot;</span>);<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210315200954262.png" srcset="/img/loading.gif" alt="image-20210315200954262"></p>
+<p>创建mylog过滤器</p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210315201110823.png" srcset="/img/loading.gif" alt="image-20210315201110823"></p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210315201217090.png" srcset="/img/loading.gif" alt="image-20210315201217090"></p>
 
             </div>
             <hr>

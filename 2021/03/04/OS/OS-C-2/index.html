@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      334 字
+      979 字
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      10
        分钟
     </span>
   
@@ -231,6 +231,7 @@
             
             <div class="markdown-body">
               <h2 id="进程（Process）"><a href="#进程（Process）" class="headerlink" title="进程（Process）"></a>进程（Process）</h2><p><em>指在系统中能独立运行并作为资源分配的基本单位，它是由一组机器指令、数据和堆栈等组成的，是一个能独立运行的活动实体</em></p>
+<p><a href="#concept">戳我看定义👉</a></p>
 <p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%BF%9B%E7%A8%8B/382503?fr=aladdin">https://baike.baidu.com/item/%E8%BF%9B%E7%A8%8B/382503?fr=aladdin</a></p>
 <p>狭义定义：进程是正在运行的程序的实例（an instance of a computer program that is being executed）</p>
 <p>广义定义：进程是一个具有一定独立功能的程序关于某个数据集合的一次运行活动。它是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/192">操作系统</a>动态执行的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9F%BA%E6%9C%AC%E5%8D%95%E5%85%83">基本单元</a>，在传统的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</a>中，进程既是基本的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%88%86%E9%85%8D%E5%8D%95%E5%85%83">分配单元</a>，也是基本的执行单元</p>
@@ -253,8 +254,55 @@
 </li>
 </ul>
 <blockquote>
-<p>P<sub>i</sub>-&gt;P<sub>j</sub>物理意义：P<sub>i</sub>的执行必须在P<sub>j</sub>开始前结束</p>
+<p>P<sub>i</sub>→P<sub>j</sub>物理意义：P<sub>i</sub>的执行必须在P<sub>j</sub>开始前结束</p>
 </blockquote>
+<p><strong>有前驱关系</strong>→有时序要求→必顺序</p>
+<p><strong>无前驱关系</strong>→无时序要求→可并发</p>
+<h5 id="表示"><a href="#表示" class="headerlink" title="表示"></a>表示</h5><p>进程P<sub>i</sub>和P<sub>j</sub>存在着前驱关系，可表示为(P<sub>i</sub>, P<sub>j</sub>)∈→或P<sub>i</sub>→P<sub>j</sub></p>
+<p>初始结点（Initial Node）：没有前驱的结点</p>
+<p>终止结点（Final Node）：没有后继的结点</p>
+<p>重量（Weight）：表示改结点所含有的程序量或程序的执行时间</p>
+<blockquote>
+<p><strong>不允许有循环</strong>，否则必然会产生不可能实现的前趋关系</p>
+</blockquote>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210312111642432.png" srcset="/img/loading.gif" alt="image-20210312111642432"></p>
+<h4 id="程序顺序执行"><a href="#程序顺序执行" class="headerlink" title="程序顺序执行"></a>程序顺序执行</h4><p>特征：</p>
+<p>① 顺序性：每一操作必须在下一个操作开始之前结束</p>
+<p>② 封闭性：程序在封闭的环境下运行，即程序运行时独占全机资源</p>
+<p>③ 可再现性：只要环境和初始条件相同，程序重复执行时都可获得相同的结果</p>
+<h4 id="程序的并发执行"><a href="#程序的并发执行" class="headerlink" title="程序的并发执行"></a>程序的并发执行</h4><p>特征：</p>
+<p>① 间断性：程序执行的间断性</p>
+<p>② 失去封闭性：程序环境失去了封闭性（其它程序可以改变一个程序环境中资源的状态）</p>
+<p>③ 不可再现性：程序结果的不可再现性←失去封闭性</p>
+<p><em>其中I代表输入操作，C代表计算操作，P为打印操作</em></p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210312112103589.png" srcset="/img/loading.gif" alt="image-20210312112103589"></p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210312112941346.png" srcset="/img/loading.gif" alt="image-20210312112941346"></p>
+<p><img src="https://gitee.com/teassassin/my-image-bed/raw/master/img/2021/image-20210312112949186.png" srcset="/img/loading.gif" alt="image-20210312112949186"></p>
+<h3 id="进程的描述"><a href="#进程的描述" class="headerlink" title="进程的描述"></a>进程的描述</h3><p>程序<strong>并发执行的特征</strong>决定了通常的程序是不能参与并发执行的。为了能并发执行并加以描述和控制，引入了“进程”的概念。</p>
+<p><span id="concept"><strong>定义：</strong></span>进程是<strong>程序实体</strong>的运行过程，是<strong>系统</strong>进行资源分配和调度的一个<strong>独立单位</strong></p>
+<p>进程和程序是<strong>两个截然不同的概念</strong>，除了进程具有程序所没有的PCB结构外，还具有下面一些<strong>特征</strong>：</p>
+<p>（1）<strong>动态性</strong>：一次执行过程，由创建产生，调度执行，阻塞暂停，撤消消亡</p>
+<p>（2）<strong>并发性</strong>：多个进程在一段时间内同时运行</p>
+<p>（3）<strong>独立性</strong>：传统OS中，进程是独立的调度单位，运行单位，资源分配单位</p>
+<p>（4）<strong>异步性</strong>：进程按各自独立的，不可预知的速度向前推进</p>
+<p>（5）<strong>结构特征</strong>：进程=程序段+数据段+PCB（进程实体/进程映像）</p>
+<h5 id="进程与程序的区别"><a href="#进程与程序的区别" class="headerlink" title="进程与程序的区别"></a>进程与程序的区别</h5><p>程序是进程的组成部分</p>
+<p>1个程序对应多个进程，1个进程包含多个程序</p>
+<p>进程</p>
+<ul>
+<li>动态</li>
+<li>存在是暂时的</li>
+</ul>
+<p>程序</p>
+<ul>
+<li>静态</li>
+<li>存在是永久的</li>
+</ul>
+<h4 id="进程的基本状态及转换"><a href="#进程的基本状态及转换" class="headerlink" title="进程的基本状态及转换"></a>进程的基本状态及转换</h4><h5 id="进程的三种基本状态"><a href="#进程的三种基本状态" class="headerlink" title="进程的三种基本状态"></a>进程的三种基本状态</h5><ol>
+<li>就绪（Ready）状态</li>
+<li>执行（Running）状态</li>
+<li>阻塞（Block）状态</li>
+</ol>
 
             </div>
             <hr>
